@@ -1,0 +1,50 @@
+.quote-container {
+    background-color: #dbdbdb;
+    border-radius: 10px;
+    margin-right: 5rem;
+    margin-left: 2.5rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    text-align: center;
+    box-shadow: 7px 7px #4d4d4d;
+}
+
+.quote {
+    font-size: 24px;
+    font-style: italic;
+    color: #1a1a1a;
+}
+
+.quote-left-container {
+    align-items: start;
+    justify-content: start;
+}
+
+.quote-right-container {
+    align-items: end;
+    justify-content: end;
+}
+
+.pad-top-2 {
+    padding-top: 2rem;
+}
+
+.pad-bot-2 {
+    padding-bottom: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex-basis: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .column {
+        flex: 1;
+    }
+}
