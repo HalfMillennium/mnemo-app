@@ -43,6 +43,21 @@
     flex-basis: 100%;
 }
 
+.floated-left {
+    float: left;
+    width: wrap;
+    margin: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.person-image {
+    max-width: 10rem;
+    border-radius: 1rem;
+    bottom: 0;
+    left: 0;
+    transform: rotate(-10deg);
+}
+
 @media screen and (min-width: 800px) {
     .column {
         flex: 1;
