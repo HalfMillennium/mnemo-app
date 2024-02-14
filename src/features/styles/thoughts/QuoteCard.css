@@ -13,6 +13,7 @@
     font-size: 24px;
     font-style: italic;
     color: #1a1a1a;
+    overflow: visible;
 }
 
 .quote-left-container {
@@ -50,12 +51,28 @@
     padding-right: 0.75rem;
 }
 
-.person-image {
+.floated-right {
+    float: right;
+    width: wrap;
+    margin: 0.75rem;
+    padding-left: 0.75rem;
+}
+
+.person-image-bottom {
     max-width: 10rem;
     border-radius: 1rem;
     bottom: 0;
     left: 0;
     transform: rotate(-10deg);
+}
+
+.person-image-top {
+    max-width: 10rem;
+    border-radius: 1rem;
+    padding-top: -2rem;
+    top: 0;
+    right: 0;
+    transform: rotate(10deg);
 }
 
 @media screen and (min-width: 800px) {
