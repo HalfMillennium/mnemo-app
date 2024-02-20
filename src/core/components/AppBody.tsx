@@ -5,6 +5,8 @@ import '../styles/AppBody.css';
 export function AppBody() {
   const searchTerm = "Taylor Swift";
   return (
-      <ShowThoughtsPage searchTerm={searchTerm}/>
+      <div className="app-body">
+        <ShowThoughtsPage searchTerm={searchTerm}/>
+      </div>
   );
 }
