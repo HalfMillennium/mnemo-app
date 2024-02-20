@@ -15,7 +15,7 @@ export default function QuoteCard(props: {quote: string}) {
                     <EmojiPanel/>
                 </div>
                 <div className="quote-container">
-                    <div className="row qoute-left-container">
+                    <div className="row qoute-left-container floated-left">
                         <FaQuoteLeft className="pad-top-2" size={QUOTE_ICON_SIZE}/>
                     </div>
                     <p className="quote">
@@ -23,15 +23,12 @@ export default function QuoteCard(props: {quote: string}) {
                             <img className="person-image-top" src="https://via.placeholder.com/200" alt="placeholder"></img>
                         </div>
                         {quote}
-                        <div className="floated-left">
-                            <img className="person-image-bottom" src="https://via.placeholder.com/200" alt="placeholder"></img>
-                        </div>
-                    </p>
-                    <div className="row quote-right-container">
-                        <div className="image-stack">
-                            <FaQuoteRight className="pad-bot-2 image-stack__item--top" size={QUOTE_ICON_SIZE}/>
+                        <div className="row quote-right-container floated-right">
                             <FaQuoteRight className="pad-bot-2" size={QUOTE_ICON_SIZE}/>
                         </div>
+                    </p>
+                    <div className="row post-metadata">
+                        <p>February 20th, 2024 - 1:48pm</p>
                     </div>
                 </div>
                 <div className="emoji-holder-right">
