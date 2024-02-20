@@ -4,7 +4,7 @@
     margin-bottom: 1rem;
 }
 
-.emoji-holder-left {
+.emoji-holder {
     flex: 1;
     width: 10rem;
     height: fit-content;
@@ -15,16 +15,15 @@
     border-radius: 1rem;
 }
 
-.emoji-holder-right {
-    flex: 1;
+.share-options {
+    flex: 0.5;
     width: 10rem;
     height: fit-content;
-    min-height: 8rem;
     background-color: #262626;
     box-shadow: 4px 4px #a740df;
     color: white;
     margin-right: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 .quote-container {
@@ -120,8 +119,19 @@
     color: gray
 }
 
-.post-metadata {
+.post-date {
     font-weight: bold;
+}
+
+.share-icons-parent {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.share-icon {
+    flex: 2;
+    padding: 1rem;
 }
 
 @media screen and (min-width: 800px) {
