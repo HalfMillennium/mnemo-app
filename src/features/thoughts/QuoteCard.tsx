@@ -1,23 +1,18 @@
 import React from 'react';
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import '../styles/thoughts/QuoteCard.css';
+import { EmojiPanel } from '../../shared/EmojiPanel';
 
 const QUOTE_ICON_SIZE = 42;
-interface EmojiDetails {
-    title: string;
-    icon_name: string;
-}
 
 export default function QuoteCard(props: {quote: string}) {
     const {quote} = props;
-    
+
     return (
         <>
             <div className="presentation-group">
                 <div className="emoji-holder-left">
-                    <div className="emoji-icon">
-
-                    </div>
+                    <EmojiPanel/>
                 </div>
                 <div className="quote-container">
                     <div className="row qoute-left-container">
