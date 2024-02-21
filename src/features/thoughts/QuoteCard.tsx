@@ -7,7 +7,7 @@ const QUOTE_ICON_SIZE = 42;
 
 export default function QuoteCard(props: {quote: string}) {
     const {quote} = props;
-
+    let firstLetter = quote[0];
     return (
         <>
             <div className="presentation-group">
@@ -22,7 +22,8 @@ export default function QuoteCard(props: {quote: string}) {
                         <div className="floated-right">
                             <img className="person-image-top" src="https://via.placeholder.com/200" alt="placeholder"></img>
                         </div>
-                        {quote}
+                        <span className="quote-text-first-letter">{quote[0]}</span>
+                        {quote.slice(1)}
                         <div className="row quote-right-container floated-right">
                             <FaQuoteRight className="pad-bot-2" size={QUOTE_ICON_SIZE}/>
                         </div>

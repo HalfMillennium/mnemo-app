@@ -29,7 +29,7 @@
 .quote-container {
     background-color: #dbdbdb;
     border-radius: 1rem;
-    margin: 0rem 1rem 1rem 1rem;
+    margin: 0rem 1rem 0rem 1rem;
     padding-bottom: 1rem;
     padding-right: 3rem;
     padding-left: 3rem;
@@ -138,4 +138,10 @@
     .column {
         flex: 1;
     }
+}
+
+.quote-text-first-letter {
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
 }
