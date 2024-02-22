@@ -11,6 +11,9 @@ function App() {
           <AppBody/>
         </div>
         <Footer/>
+        <video className='videoTag' autoPlay loop muted>
+            <source src={require('./core/assets/page_background.mov')} type='video/mp4' />
+        </video>
       </div>
   );
 }

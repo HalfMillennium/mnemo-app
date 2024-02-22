@@ -3,6 +3,16 @@
   width: 100%;
 }
 
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 /** Not useful at the moment, but may be in the future **/
 /*
 @media (prefers-reduced-motion: no-preference) {
