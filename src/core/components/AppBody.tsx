@@ -6,7 +6,9 @@ export function AppBody() {
   const searchTerm = "Taylor Swift";
   return (
       <div className="app-body">
-        <ShowThoughtsPage searchTerm={searchTerm}/>
+        <div className="app-body-main">
+          <ShowThoughtsPage searchTerm={searchTerm}/>
+        </div>
       </div>
   );
 }

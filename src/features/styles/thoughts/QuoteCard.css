@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 1rem;
+    justify-content: center;
+    width: 45vw;
 }
 
 .emoji-holder {
@@ -35,7 +37,7 @@
     padding-left: 3rem;
     text-align: center;
     box-shadow: 7px 7px #4d4d4d;
-    flex: 5
+    flex: 5;
 }
 
 .quote {
