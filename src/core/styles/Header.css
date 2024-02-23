@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
     font-size: 5rem;
     font-family: "Micro 5", sans-serif;
-    color: white;
+    color: rgb(29, 29, 29);
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    opacity: 75%;
+}
+
+.header-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: wrap;
+    opacity: 80%;
 }
 
 .header-container {
-    width: 100%;
+    width: fit-content;
     justify-content: start;
     align-items: start;
 }
