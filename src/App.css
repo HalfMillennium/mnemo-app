@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  width: 100%;
+  top: 50%;
+  left: 50%;
 }
 
 video {
@@ -24,4 +25,6 @@ video {
 .app-body {
   align-items: center;
   justify-content: center;
+  top: 50%;
+  left: 50%;
 }
