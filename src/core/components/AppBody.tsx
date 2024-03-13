@@ -1,5 +1,5 @@
 import React from "react";
-import {ShowThoughtsPage} from '../../features/thoughts';
+import {DiaryEntryPage} from '../../features/diary_entry';
 import '../styles/AppBody.css';
 
 export function AppBody() {
@@ -7,7 +7,7 @@ export function AppBody() {
   return (
       <div className="app-body">
         <div className="app-body-main">
-          <ShowThoughtsPage searchTerm={searchTerm}/>
+          <DiaryEntryPage searchTerm={searchTerm}/>
         </div>
       </div>
   );

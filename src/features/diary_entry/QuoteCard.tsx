@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaRegShareSquare, FaRegCopy } from "react-icons/fa";
-import '../styles/thoughts/QuoteCard.css';
+import '../styles/diary_entry/QuoteCard.css';
 import { EmojiPanel } from '../../shared/EmojiPanel';
 
 const QUOTE_ICON_SIZE = 42;
