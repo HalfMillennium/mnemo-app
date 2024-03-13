@@ -1,0 +1,9 @@
+.app-body {
+    height: 90vh;
+    overflow: visible;
+}
+
+.app-body-main {
+    justify-self: center;
+    align-items: end;
+}
