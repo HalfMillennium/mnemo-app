@@ -3,12 +3,13 @@ import '../styles/diary_entry/SearchDiaryPage.css'
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../core/store/store";
+import { AppDispatch, RootState } from "../../core/store/store";
 import { updateName } from "../../core/store/name_prompt/namePromptSlice";
+import { fetchJournalEntryFromName } from "../../core/store/journal_entries/journalEntriesSlice";
 
 export function SearchDiaryPage() {
     const namePrompt = useSelector((state: RootState) => state.namePrompt.name);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     
     return (
           <div className="container">
@@ -35,8 +36,13 @@ export function SearchDiaryPage() {
             event.preventDefault();
             let formValue = form.namePromptInput;
             if(formValue) {
-                dispatch(updateName(formValue))
-                console.log('Action dispatched!')
+                dispatch(updateName(formValue));
+                dispatch(
+                    fetchJournalEntryFromName({
+                        name: formValue,
+                        journalEntry: { complete: false, content: undefined },
+                    })
+                );
             }
         }
         return (
