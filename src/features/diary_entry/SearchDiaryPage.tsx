@@ -10,13 +10,15 @@ export function SearchDiaryPage() {
             <div className="content">
                 <div className="search-diary-entries-title">
                     <h1>SEARCH</h1>
-                    <h1>DIARY</h1>
+                    <h1>JOURNAL</h1>
                     <h1>ENTRIES</h1>
                 </div>
                 <form action="#" method="GET" className="search-form">
                     <input 
                         id="searchBox" type="text" name="search" placeholder="Search diary entries..."/>
-                    <button type="submit" onMouseEnter={() => setRandomNumber(getRandomNumber())}>{ WHIMSICAL_SYNONYMS_FOR_SEARCH[randomNumber] }</button>
+                    <button type="submit" onMouseEnter={() => setRandomNumber(getRandomNumber())}>
+                        { WHIMSICAL_SYNONYMS_FOR_SEARCH[randomNumber] }
+                    </button>
                 </form>
             </div>
         </div>
