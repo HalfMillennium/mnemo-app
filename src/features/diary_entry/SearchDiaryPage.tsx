@@ -13,7 +13,7 @@ export function SearchDiaryPage() {
                     <h1>ENTRIES</h1>
                 </div>
                 <form action="#" method="GET" className="search-form">
-                    <input type="text" name="search" placeholder="Search diary entries..."/>
+                    <input id="searchBox" type="text" name="search" placeholder="Search diary entries..."/>
                     <button type="submit">{ WHIMSICAL_SYNONYMS_FOR_SEARCH[randomNumber] }</button>
                 </form>
             </div>
