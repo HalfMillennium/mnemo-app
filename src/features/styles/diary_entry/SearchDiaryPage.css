@@ -64,11 +64,13 @@ input[type="text"] {
     font-size: 1rem;
     border: 2px solid #ccc;
     border-radius: 5px 0 0 5px;
+    width: 20rem;
 }
 
 button {
     padding: 10px 20px;
     font-size: 1rem;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     border: none;
     background-color: #1c1c1c;
     color: white;
