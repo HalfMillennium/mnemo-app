@@ -8,7 +8,6 @@ import { updateName } from "../../core/store/name_prompt/namePromptSlice";
 import { fetchJournalEntryFromName } from "../../core/store/journal_entries/journalEntriesSlice";
 
 export function SearchDiaryPage() {
-    const namePrompt = useSelector((state: RootState) => state.namePrompt.name);
     const dispatch = useDispatch<AppDispatch>();
     
     return (
