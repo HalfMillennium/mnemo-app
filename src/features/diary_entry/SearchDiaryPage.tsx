@@ -24,7 +24,7 @@ export function SearchDiaryPage() {
                     <span className="name-prompt-container">
                         <NamePromptForm/> 
                     </span>
-                    <FaQuestionCircle className="question-mark" size={24}/>
+                    <FaQuestionCircle className="question-mark" size={24} color="#1e1e1e"/>
                     <Tooltip anchorSelect=".question-mark" clickable place="bottom">
                         <InfoBox/>
                     </Tooltip>
