@@ -2,14 +2,16 @@ import React, { FormEvent } from "react"
 import '../styles/diary_entry/SearchDiaryPage.css'
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../core/store/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../core/store/store";
 import { updateName } from "../../core/store/name_prompt/namePromptSlice";
 import { fetchJournalEntryFromName } from "../../core/store/journal_entries/journalEntriesSlice";
+import { Tooltip } from 'react-tooltip'
+import { InfoBox } from "../../core/components/InfoBox";
+import { FaQuestionCircle } from "react-icons/fa";
 
 export function SearchDiaryPage() {
     const dispatch = useDispatch<AppDispatch>();
-    
     return (
           <div className="container">
             <div className="content">
@@ -18,7 +20,15 @@ export function SearchDiaryPage() {
                     <h1>JOURNAL</h1>
                     <h1>ENTRIES</h1>
                 </div>
-                <NamePromptForm/>
+                <div className="bottom-container">
+                    <span className="name-prompt-container">
+                        <NamePromptForm/> 
+                    </span>
+                    <FaQuestionCircle className="question-mark" size={24}/>
+                    <Tooltip anchorSelect=".question-mark" clickable place="bottom">
+                        <InfoBox/>
+                    </Tooltip>
+                </div>
             </div>
         </div>
     );

@@ -83,3 +83,19 @@ button {
 button:hover {
     background-color: #b36b00;
 }
+
+.question-mark {
+    flex: 1;
+    margin-top: 2rem;
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-prompt-container {
+    flex: 1
+}
