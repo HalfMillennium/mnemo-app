@@ -1,15 +1,20 @@
 import React from "react";
 import '../styles/InfoBox.css';
 
-export function InfoBox() {
+export function InfoBox(props: {text: string, imageSrc: string, link?: string, linkText?: string}) {
     return (
+        <>
         <div className="info-box">
             <div className="text-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {props.text}
             </div>
             <div className="image-holder">
-                <img src="https://placehold.co/75x75" alt="mnemo"/>
+                <img src={props.imageSrc} alt="mnemo"/>
             </div>
         </div>
+        <div className="more-info">
+            {props.linkText} <a href={props.link} className="more-info-link"><u>here.</u></a>
+        </div>
+        </>
     );
 }

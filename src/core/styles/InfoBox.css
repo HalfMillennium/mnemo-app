@@ -17,3 +17,16 @@
     text-align: left;
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+
+img {
+    max-width: 100%;
+    max-height: 100%
+}
+
+.more-info {
+    padding: 0.5rem;
+}
+
+.more-info-link {
+    cursor: pointer;
+}

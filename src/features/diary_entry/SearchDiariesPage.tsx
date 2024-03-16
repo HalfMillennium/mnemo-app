@@ -1,16 +1,16 @@
 import React, { FormEvent } from "react"
-import '../styles/diary_entry/SearchDiaryPage.css'
+import '../styles/diary_entry/SearchDiariesPage.css'
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
+import { MNEMOSYNE_BLURB } from "./utils/search_diaries_page";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../core/store/store";
-import { updateName } from "../../core/store/name_prompt/namePromptSlice";
 import { fetchJournalEntryFromName } from "../../core/store/journal_entries/journalEntriesSlice";
 import { Tooltip } from 'react-tooltip'
 import { InfoBox } from "../../core/components/InfoBox";
 import { FaQuestionCircle } from "react-icons/fa";
 
-export function SearchDiaryPage() {
+export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();
     return (
           <div className="container">
@@ -26,7 +26,12 @@ export function SearchDiaryPage() {
                     </span>
                     <FaQuestionCircle className="question-mark" size={24} color="#1e1e1e"/>
                     <Tooltip anchorSelect=".question-mark" clickable place="bottom">
-                        <InfoBox/>
+                        <h4>What? Why?</h4>
+                        <InfoBox 
+                            text={MNEMOSYNE_BLURB} 
+                            imageSrc={'https://upload.wikimedia.org/wikipedia/commons/8/87/Mnemosyne_-_the_Greek_goddess_of_Memory.jpg'}
+                            link={"https://github.com/HalfMillennium/mnemo-app"}
+                            linkText={"Check out the GitHub repo"}/>
                     </Tooltip>
                 </div>
             </div>
@@ -45,7 +50,6 @@ export function SearchDiaryPage() {
             event.preventDefault();
             let formValue = form.namePromptInput;
             if(formValue) {
-                dispatch(updateName(formValue));
                 dispatch(
                     fetchJournalEntryFromName({
                         name: formValue,
