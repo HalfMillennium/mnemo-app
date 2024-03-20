@@ -1,5 +1,4 @@
 import React, { FormEvent } from "react"
-import '../styles/diary_entry/SearchDiariesPage.css'
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
 import { MNEMOSYNE_BLURB } from "./utils/search_diaries_page";
 import { useState } from "react";
@@ -9,6 +8,7 @@ import { fetchJournalEntryFromName } from "../../core/store/journal_entries/jour
 import { Tooltip } from 'react-tooltip'
 import { InfoBox } from "../../core/components/InfoBox";
 import { FaQuestionCircle } from "react-icons/fa";
+import '../styles/diary_entry/SearchDiariesPage.css';
 
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();

@@ -9,7 +9,7 @@ export default function QuoteCard(props: {quote: string}) {
     const {quote} = props;
 
     return (
-        <div className="presentation-group">
+        <div className="component-container">
             <div className="emoji-holder">
                 <EmojiPanel/>
             </div>

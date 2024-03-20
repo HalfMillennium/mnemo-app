@@ -7,3 +7,16 @@
     justify-self: center;
     align-items: end;
 }
+
+.diary-entry-page-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-color: red;
+}
+
+.diary-entry-page {
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+}

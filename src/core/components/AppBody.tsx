@@ -7,7 +7,7 @@ export function AppBody() {
   return (
       <div className="app-body">
         <div className="app-body-main">
-            <SearchDiariesPage/>
+          <DiaryEntryPage searchTerm="John Malkovich"/>
         </div>
       </div>
   );
