@@ -3,13 +3,12 @@
     flex-direction: row;
     padding-bottom: 7rem;
     justify-content: center;
-    width: 45vw;
+    width: 55vw;
 }
 
-.emoji-holder {
-    flex: 0.3;
+.bio-card-container {
+    flex: 2;
     height: fit-content;
-    min-height: 8rem;
     background-color: #262626;
     box-shadow: 4px 4px #a740df;
     color: white;

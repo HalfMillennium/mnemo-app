@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaRegShareSquare, FaRegCopy } from "react-icons/fa";
 import '../styles/diary_entry/QuoteCard.css';
-import { EmojiPanel } from '../../shared/EmojiPanel';
+import { Tooltip } from 'react-tooltip';
+import { CardDisplay } from '../../shared/card-display/CardDisplay';
 
 const QUOTE_ICON_SIZE = 42;
 
@@ -10,8 +11,8 @@ export default function QuoteCard(props: {quote: string}) {
 
     return (
         <div className="component-container">
-            <div className="emoji-holder">
-                <EmojiPanel/>
+            <div className="bio-card-container">
+                <CardDisplay/>
             </div>
             <div className="quote-container">
                 <div className="row qoute-left-container floated-left">
@@ -28,6 +29,7 @@ export default function QuoteCard(props: {quote: string}) {
                 </p>
                 <div className="row">
                     <p><span className="post-date">February 20th, 2024</span> - 1:48pm</p>
+                    <img src={require('../../core/assets/apollo_trans.gif')} width={50} height={50}/>
                 </div>
             </div>
             <div className="share-options">
@@ -40,6 +42,9 @@ export default function QuoteCard(props: {quote: string}) {
                     </div>
                 </div>
             </div>
+            <Tooltip anchorSelect=".row" clickable place="bottom">
+                Precise date brought to you by a friend of Apollo.
+            </Tooltip>
         </div>
     )
 }
