@@ -2,17 +2,17 @@ import React from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaRegShareSquare, FaRegCopy } from "react-icons/fa";
 import '../styles/diary_entry/QuoteCard.css';
 import { Tooltip } from 'react-tooltip';
-import { CardDisplay } from '../../shared/card-display/CardDisplay';
+import { BioCardDisplay } from '../../shared/card-display/BioCardDisplay';
 
 const QUOTE_ICON_SIZE = 42;
 
-export default function QuoteCard(props: {quote: string}) {
-    const {quote} = props;
+export default function QuoteCard(props: {quote: string, searchTerm: string}) {
+    const {quote, searchTerm} = props;
 
     return (
         <div className="component-container">
             <div className="bio-card-container">
-                <CardDisplay/>
+                <BioCardDisplay entityName={searchTerm}/>
             </div>
             <div className="quote-container">
                 <div className="row qoute-left-container floated-left">
