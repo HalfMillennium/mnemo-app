@@ -1,2 +1,2 @@
-export * from './SearchDiaryPage'
+export * from './SearchDiariesPage'
 export * from './DiaryEntryPage'

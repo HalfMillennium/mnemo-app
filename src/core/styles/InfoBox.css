@@ -1,0 +1,32 @@
+.info-box {
+    display: flex;
+    background-color: rgba(25, 25, 25, 0.5);
+    align-items: center;
+    padding: 1rem;
+    width: 30rem;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+.image-holder {
+    float: right;
+    padding: 0.5rem;
+}
+
+.text-content {
+    text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%
+}
+
+.more-info {
+    padding: 0.5rem;
+}
+
+.more-info-link {
+    cursor: pointer;
+}

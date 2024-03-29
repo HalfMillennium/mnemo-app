@@ -13,6 +13,10 @@ video {
   z-index: -1;
 }
 
+.bg-video-search-diaries {
+  filter: hue-rotate(90deg);
+}
+
 /** Not useful at the moment, but may be in the future **/
 /*
 @media (prefers-reduced-motion: no-preference) {

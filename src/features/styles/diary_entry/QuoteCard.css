@@ -1,15 +1,15 @@
-.presentation-group {
+.component-container {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1rem;
+    padding-bottom: 7rem;
     justify-content: center;
-    width: 45vw;
+    min-width: 40vw;
+    max-width: 60vw;
 }
 
-.emoji-holder {
-    flex: 0.3;
+.bio-card-container {
+    flex: 2;
     height: fit-content;
-    min-height: 8rem;
     background-color: #262626;
     box-shadow: 4px 4px #a740df;
     color: white;
