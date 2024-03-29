@@ -18,7 +18,7 @@ export default function QuoteCard(props: {quote: string, searchTerm: string}) {
                 <div className="row qoute-left-container floated-left">
                     <FaQuoteLeft className="pad-top-2" size={QUOTE_ICON_SIZE}/>
                 </div>
-                <p className="quote">
+                <div className="quote">
                     <div className="floated-right">
                         <img className="person-image-top" src="https://via.placeholder.com/200" alt="placeholder"></img>
                     </div>
@@ -26,7 +26,7 @@ export default function QuoteCard(props: {quote: string, searchTerm: string}) {
                     <div className="row quote-right-container floated-right">
                         <FaQuoteRight className="pad-bot-2" size={QUOTE_ICON_SIZE}/>
                     </div>
-                </p>
+                </div>
                 <div className="row">
                     <p><span className="post-date">February 20th, 2024</span> - 1:48pm</p>
                     <img src={require('../../core/assets/apollo_trans.gif')} width={50} height={50}/>

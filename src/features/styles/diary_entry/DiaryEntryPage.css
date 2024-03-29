@@ -1,8 +1,20 @@
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 75vh;
+}
+
+.back-button-container {
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    flex: 1;
+}
+
+.quote-card-container {
+    flex: 8;
 }
 
 .preamble {

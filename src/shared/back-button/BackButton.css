@@ -1,0 +1,22 @@
+.back-button-group {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-button-icon {
+    flex: 1;
+}
+
+.back-button-text {
+    flex: 2;
+    width: 15rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.back-button-text:hover {
+    text-decoration: underline;
+}

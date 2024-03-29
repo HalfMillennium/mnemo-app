@@ -1,5 +1,6 @@
 import React from "react";
 import { AppBody, Header, Footer } from "./core/components";
+import { FaBackward } from "react-icons/fa6";
 
 import './App.css';
 

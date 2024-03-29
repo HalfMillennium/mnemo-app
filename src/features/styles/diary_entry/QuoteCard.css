@@ -3,7 +3,8 @@
     flex-direction: row;
     padding-bottom: 7rem;
     justify-content: center;
-    width: 55vw;
+    min-width: 40vw;
+    max-width: 60vw;
 }
 
 .bio-card-container {

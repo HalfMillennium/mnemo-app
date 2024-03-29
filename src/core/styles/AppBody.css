@@ -3,11 +3,6 @@
     overflow: visible;
 }
 
-.app-body-main {
-    justify-self: center;
-    align-items: end;
-}
-
 .diary-entry-page-container {
     display: flex;
     text-align: center;
