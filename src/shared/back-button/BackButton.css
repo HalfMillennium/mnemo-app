@@ -4,7 +4,6 @@
     width: fit-content;
     height: fit-content;
     align-items: center;
-    cursor: pointer;
 }
 
 .back-button-icon {
@@ -17,6 +16,6 @@
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-.back-button-text:hover {
-    text-decoration: underline;
+.space-left {
+    padding-left: 1rem;
 }
