@@ -11,7 +11,6 @@ function App() {
         <div className="app-body">
           <AppBody/>
         </div>
-        <Footer/>
         <video className={(Math.floor(Math.random() * 2) > 0) ? 'bg-video-search-diaries' : 'bg-video-diary-entry'} autoPlay loop muted>
             <source src={require('./core/assets/page_background.mov')} type='video/mp4' />
         </video>
