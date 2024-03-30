@@ -1,0 +1,33 @@
+.bio-card-parent {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-top: -0.8rem;
+}
+
+.bio-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 0.65rem;
+    margin-right: 0.5rem;
+    clear: both;
+}
+
+.bio-text {
+    padding: 0.75rem;
+    text-align: left;
+    float: right;
+}
+
+@media screen and (max-width: 1520px) {
+    .bio-image {
+        float: none;
+    }
+    .bio-card-parent {
+        justify-content: center;
+        align-items: center;
+    }
+    .bio-text {
+        text-align: center;
+    }
+}

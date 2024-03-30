@@ -12,7 +12,18 @@
 }
 
 .header-container {
-    width: 100%;
     justify-content: start;
     align-items: start;
+}
+
+.info-tooltip {
+    position: relative;
+    top: calc(-100% - 50px);
+    transform: translateX(-50%);
+    background-color: rgba(22, 22, 22, 0.8);
+    color: white;
+}
+
+.info-tooltip-container {
+    position: relative;
 }
