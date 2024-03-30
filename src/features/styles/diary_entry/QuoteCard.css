@@ -167,4 +167,7 @@
     .share-fab {
         visibility: visible;
     }
+    .share-options {
+        visibility: hidden;
+    }
 }
