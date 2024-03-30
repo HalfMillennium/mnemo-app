@@ -6,10 +6,9 @@
 }
 
 .bio-image {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border-radius: 1rem;
-    clear: both;
 }
 
 .bio-text {
@@ -18,18 +17,30 @@
     float: right;
 }
 
-@media screen and (max-width: 1520px) {
-    .bio-image {
-        float: none;
-        width: 100px;
-        height: 100px;
-        border-radius: 0.65rem;
-    }
+@media (max-width: 1520px) {
     .bio-card-parent {
         justify-content: center;
         align-items: center;
     }
     .bio-text {
         text-align: center;
+    }
+}
+
+@media (max-width: 1140px) {
+    .bio-image {
+        float: none;
+        width: 200px;
+        height: 200px;
+        border-radius: 1rem;
+    }
+}
+
+@media (max-width: 630px) {
+    .bio-image {
+        float: none;
+        width: 200px;
+        height: 200px;
+        border-radius: 0.65rem;
     }
 }

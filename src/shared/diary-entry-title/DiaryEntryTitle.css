@@ -1,0 +1,20 @@
+.title-container {
+    text-align: end;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    line-height: 1rem;
+    padding-bottom: 1.5rem;
+    opacity: 0.75;
+}
+
+.quote-mark {
+    color: purple;
+}
+
+@media (max-width: 630px) {
+    .title-container {
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+    }
+}

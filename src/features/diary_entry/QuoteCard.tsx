@@ -10,8 +10,8 @@ import { getModalColor } from './utils/quote_card';
 
 const QUOTE_ICON_SIZE = 42;
 
-export default function QuoteCard(props: {quote: string, searchTerm: string}) {
-    const {quote, searchTerm} = props;
+export default function QuoteCard(props: {quote: string, entityName: string}) {
+    const {quote, entityName} = props;
     const [modalOpen, setModelOpen] = useState(false);
     const handleModalOpen = () => setModelOpen(true);
     const handleModalClose = () => setModelOpen(false);
@@ -43,7 +43,7 @@ export default function QuoteCard(props: {quote: string, searchTerm: string}) {
         <>
             <div className="component-container">
                 <div className="bio-card-container">
-                    <BioCardDisplay entityName={searchTerm}/>
+                    <BioCardDisplay entityName={entityName}/>
                 </div>
                 <div className="quote-container">
                     <div className="row qoute-left-container floated-left">
