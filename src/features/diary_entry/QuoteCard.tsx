@@ -3,11 +3,20 @@ import { FaQuoteLeft, FaQuoteRight, FaRegShareSquare, FaRegCopy } from "react-ic
 import '../styles/diary_entry/QuoteCard.css';
 import { Tooltip } from 'react-tooltip';
 import { BioCardDisplay } from '../../shared/card-display/BioCardDisplay';
+import { IconButton } from '@mui/material';
 
 const QUOTE_ICON_SIZE = 42;
 
 export default function QuoteCard(props: {quote: string, searchTerm: string}) {
     const {quote, searchTerm} = props;
+
+    function share() {
+        console.log('Should share...');
+    }
+
+    function copyText() {
+        console.log('Should copy to user\'s clipboard...')
+    }
 
     return (
         <div className="component-container">
@@ -35,10 +44,14 @@ export default function QuoteCard(props: {quote: string, searchTerm: string}) {
             <div className="share-options">
                 <div className="share-icons-parent">
                     <div className="share-icon">
-                        <FaRegShareSquare size={24}/>
+                        <IconButton onClick={share}>
+                            <FaRegShareSquare size={24} color="white"/>
+                        </IconButton>
                     </div>
                     <div className="share-icon">
-                        <FaRegCopy size={24}/>
+                        <IconButton onClick={copyText}>
+                            <FaRegCopy size={24} color="white"/>
+                        </IconButton>
                     </div>
                 </div>
             </div>
