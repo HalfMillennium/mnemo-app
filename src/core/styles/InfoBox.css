@@ -1,6 +1,6 @@
 .info-box {
     display: flex;
-    background-color: rgba(25, 25, 25, 0.5);
+    background-color: rgba(25, 25, 25, 0);
     align-items: center;
     padding: 1rem;
     width: 30rem;
