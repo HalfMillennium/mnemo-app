@@ -19,3 +19,9 @@
 .space-left {
     padding-left: 1rem;
 }
+
+@media (max-width: 630px) {
+    .back-button-group {
+        width: 100vw;
+    }
+}
