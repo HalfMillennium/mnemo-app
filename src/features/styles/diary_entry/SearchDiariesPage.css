@@ -99,3 +99,12 @@ button:hover {
 .name-prompt-container {
     flex: 1
 }
+
+@media (max-width: 600px) {
+    .search-diary-entries-title {
+        text-align: center;
+    }
+    input[type="text"] {
+        width: 15rem;
+    }
+}

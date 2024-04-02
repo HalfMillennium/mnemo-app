@@ -135,3 +135,52 @@
     flex: 2;
     padding: 1rem;
 }
+
+.share-fab {
+    position: fixed;
+    visibility: hidden;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+}
+
+.quote-extras-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.share-to {
+    flex: 1;
+}
+
+.copy-text {
+    flex: 1;
+}
+
+.modal-option-header {
+    color: white;
+}
+
+@media (max-width: 1260px) {
+    .share-fab {
+        visibility: visible;
+    }
+    .share-options {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 1140px) {
+    .component-container {
+        flex-direction: column;
+        max-width: 100vw;
+        align-items: center;
+    }
+
+    .bio-card-container {
+        margin-bottom: 2rem;
+        max-width: 60vw;
+    }
+}

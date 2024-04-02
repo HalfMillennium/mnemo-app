@@ -6,9 +6,19 @@
     height: 75vh;
 }
 
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50vw;
+}
+
 .back-button-container {
-    justify-content: center;
-    align-items: center;
+    padding-top: 5rem;
+    flex: 1;
+}
+
+.diary-entry-title {
     padding-top: 5rem;
     flex: 1;
 }
@@ -17,4 +27,29 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.quote-card-container {
+    max-height: 75vh;
+}
+
+@media (max-width: 1200px) {
+    .page-header {
+        flex-direction: column;
+    }
+    .back-button-container {
+        padding-top: 15rem;
+        margin-bottom: -5rem;
+    }
+}
+
+@media (max-width: 630px) {
+    .page-header {
+        justify-content: center;
+        align-items: center;
+    }
+    .diary-entry-title {
+        justify-content: center;
+        align-items: center;
+    }
 }
