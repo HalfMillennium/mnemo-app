@@ -100,11 +100,17 @@ button:hover {
     flex: 1
 }
 
-@media (max-width: 600px) {
+@media (max-width: 630px) {
     .search-diary-entries-title {
         text-align: center;
     }
     input[type="text"] {
         width: 15rem;
+    }
+    .content {
+        padding-top: 10rem;
+    }
+    .static-info-box {
+        background-color: rgba(22, 22, 22, 0.8);
     }
 }

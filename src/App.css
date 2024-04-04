@@ -17,13 +17,9 @@ video {
   filter: hue-rotate(90deg);
 }
 
-/** Not useful at the moment, but may be in the future **/
-/*
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}*/
+.bg-progress-page {
+  filter: grayscale(75%)
+}
 
 .app-body {
   align-items: center;

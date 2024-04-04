@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { updateName } from "../name_prompt/namePromptSlice";
 
-interface JournalEntry {
+export interface JournalEntry {
   // undefined -> not started, false -> failed, true -> succeeded
   complete: boolean | undefined;
   content: string | undefined;
