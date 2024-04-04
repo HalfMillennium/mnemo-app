@@ -1,15 +1,16 @@
 import React from "react";
-import { AppBody, Header, Footer } from "./core/components";
-import { FaBackward } from "react-icons/fa6";
-
+import { AppBody, Header } from "./core/components";
 import './App.css';
+import { useSelector } from "react-redux";
+import { RootState } from "./core/store/store";
 
 function App() {
+  const pageState = useSelector((state: RootState) => state.journalEntries.pageState);
   return (
       <div className="App">
         <Header/>
         <div className="app-body">
-          <AppBody/>
+          <AppBody pageState={pageState}/>
         </div>
         <video className={onlyForTesting()} autoPlay loop muted>
             <source src={require('./core/assets/page_background.mov')} type='video/mp4' />
