@@ -13,7 +13,7 @@ video {
   z-index: -1;
 }
 
-.bg-video-search-diaries {
+.bg-video-diary-entry {
   filter: hue-rotate(90deg);
 }
 

@@ -16,6 +16,7 @@ export function AppBody(props: {pageState: number}) {
   useEffect(() => {
     updatePage();
   }, [props.pageState, currentEntityName]);
+
   return (
       <div className="app-body">
         <div className="app-body-main">
@@ -25,13 +26,19 @@ export function AppBody(props: {pageState: number}) {
   );
 
   function updatePage() {
-    if(props.pageState === 1 && currentEntityName) {
-      setCurrentTabTitle('Diary Entry');
-      setCurrentPage(<DiaryEntryPage entityName={currentEntityName}/>);
-    } else if(props.pageState === 2 && currentEntityName) {
-      setCurrentTabTitle('Making magic happen...');
-      setCurrentPage(<ProgressPage entityName={currentEntityName}/>);
+    if(currentEntityName) {
+      switch(props.pageState) {
+        case 1:
+          setCurrentTabTitle('Diary Entry');
+          setCurrentPage(<DiaryEntryPage entityName={currentEntityName}/>);
+          break;
+        case 2:
+          setCurrentTabTitle('Making magic happen...');
+          setCurrentPage(<ProgressPage entityName={currentEntityName}/>);
+          break;
+        default:
+      }
+      document.title = `MNEMO | ${currentTabTitle}`;
     }
-    document.title = `MNEMO | ${currentTabTitle}`;
   }
 }
