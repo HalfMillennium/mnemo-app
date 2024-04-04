@@ -13,8 +13,8 @@ import '../styles/diary_entry/SearchDiariesPage.css';
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();
     return (
-          <div className="container">
-            <div className="content">
+          <div className="search-page-container">
+            <div className="search-page-content">
                 <div className="search-diary-entries-title">
                     <h1>SEARCH</h1>
                     <h1>JOURNAL</h1>

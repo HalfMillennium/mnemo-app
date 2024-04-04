@@ -31,14 +31,15 @@ body {
     background-color: #f0f0f0;
 }
 
-.container {
+.search-page-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding-top: 10rem;
 }
 
-.content {
+.search-page-content {
     text-align: center;
     padding-bottom: 25rem;
 }
@@ -101,6 +102,7 @@ button:hover {
 }
 
 .static-info-box {
+    margin-top: 3rem;
     visibility: hidden;
 }
 
