@@ -11,11 +11,23 @@ function App() {
         <div className="app-body">
           <AppBody/>
         </div>
-        <video className={(Math.floor(Math.random() * 2) > 0) ? 'bg-video-search-diaries' : 'bg-video-diary-entry'} autoPlay loop muted>
+        <video className={onlyForTesting()} autoPlay loop muted>
             <source src={require('./core/assets/page_background.mov')} type='video/mp4' />
         </video>
       </div>
   );
+
+  function onlyForTesting() {
+    let randomNum = Math.floor(Math.random() * 3);
+    switch(randomNum) {
+      case 0:
+        return 'bg-video-search-diaries';
+      case 1:
+        return 'bg-video-diary-entry';
+      default:
+        return 'bg-progress-page';
+    }
+  }
 }
 
 export default App;

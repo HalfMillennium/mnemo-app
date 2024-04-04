@@ -1,6 +1,7 @@
 import React from "react";
 import {DiaryEntryPage} from '../../features/diary_entry';
 import { SearchDiariesPage } from "../../features/diary_entry";
+import {ProgressPage} from "../../shared/progress-page/ProgressPage";
 import '../styles/AppBody.css';
 import { useEffect } from "react";
 
@@ -12,7 +13,7 @@ export function AppBody() {
   return (
       <div className="app-body">
         <div className="app-body-main">
-          <SearchDiariesPage/>
+          <ProgressPage entityName="John Malkovich"/>
         </div>
       </div>
   );

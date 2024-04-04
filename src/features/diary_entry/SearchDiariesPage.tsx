@@ -24,6 +24,13 @@ export function SearchDiariesPage() {
                     <span className="name-prompt-container">
                         <NamePromptForm/> 
                     </span>
+                    <span className="static-info-box">
+                        <InfoBox 
+                            text={MNEMOSYNE_BLURB} 
+                            imageSrc={'https://upload.wikimedia.org/wikipedia/commons/8/87/Mnemosyne_-_the_Greek_goddess_of_Memory.jpg'}
+                            link={"https://github.com/HalfMillennium/mnemo-app"}
+                            linkText={"Check out the GitHub repo"}/>
+                    </span>
                     <FaQuestionCircle className="question-mark" size={24} color="#1e1e1e"/>
                     <Tooltip anchorSelect=".question-mark" clickable place="bottom">
                         <h4>What? Why?</h4>
