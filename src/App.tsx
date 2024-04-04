@@ -1,46 +1,43 @@
 import React, { useEffect } from "react";
 import { AppBody, Header } from "./core/components";
 import './App.css';
-import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { RootState } from "./core/store/store";
 
 function App() {
-  const pageState = useSelector((state: RootState) => state.journalEntries.pageState);
-  const [pageClass, setPageClass] = useState('bg-video-search-diaries');
+  const location = useLocation();
+  const loadingStatus = useSelector((state: RootState) => state.journalEntries.loading);
+
+  const [pageClass, setPageClass] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getPageClass(pageState);
-    console.log('called');
-  }, [pageState]);
-
+    if(location.pathname === '/journal') {
+      if(loadingStatus) {
+        // Diary entry is loading, set appropriate page class
+        setPageClass('bg-progress-page');
+        return;
+      }
+      console.log('wtf');
+      setPageClass('bg-diary-entry');
+      return;
+    }
+    // Use default styling on '/' route
+    setPageClass('');
+  }, [location, loadingStatus]);
   return (
       <div className="App">
         <Header/>
         <div className="app-body">
-          <AppBody pageState={pageState}/>
+            <AppBody />
         </div>
         <video className={pageClass} autoPlay loop muted>
             <source src={require('./core/assets/page_background.mov')} type='video/mp4' />
         </video>
       </div>
   );
-
-  function getPageClass(pageState: number) {
-    switch(pageState) {
-      case 0:
-        setPageClass('');
-        break;
-      case 1:
-        setPageClass('bg-video-search-diaries');
-        break;        
-      case 2:
-        console.log('setting bg-video-diary-entry');
-        setPageClass('bg-video-diary-entry');
-        break;
-      default:
-    }
-  }
 }
 
 export default App;

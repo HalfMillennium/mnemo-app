@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes, Link } from 'react-router-dom';
 import {DiaryEntryPage} from '../../features/diary_entry';
 import { SearchDiariesPage } from "../../features/diary_entry";
 import {ProgressPage} from "../../shared/progress-page/ProgressPage";
@@ -7,38 +8,22 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 
-export function AppBody(props: {pageState: number}) {
-  const [currentTabTitle, setCurrentTabTitle] = useState('Search Entries');
-  const [currentPage, setCurrentPage] = useState(<SearchDiariesPage/>);
-
+export function AppBody() {
+  const [entityName, setEntityName] = useState('');
   const currentEntityName = useSelector((state: RootState) => state.namePrompt.name);
 
   useEffect(() => {
-    updatePage();
-  }, [props.pageState, currentEntityName]);
+    setEntityName(currentEntityName ?? '');
+  }, [currentEntityName]);
 
   return (
       <div className="app-body">
         <div className="app-body-main">
-          {currentPage}
+          <Routes>
+            <Route path="/" element={<SearchDiariesPage/>} />
+            <Route path="/journal" element={<DiaryEntryPage entityName={entityName}/>} />
+          </Routes>
         </div>
       </div>
   );
-
-  function updatePage() {
-    if(currentEntityName) {
-      switch(props.pageState) {
-        case 1:
-          setCurrentTabTitle('Diary Entry');
-          setCurrentPage(<DiaryEntryPage entityName={currentEntityName}/>);
-          break;
-        case 2:
-          setCurrentTabTitle('Making magic happen...');
-          setCurrentPage(<ProgressPage entityName={currentEntityName}/>);
-          break;
-        default:
-      }
-      document.title = `MNEMO | ${currentTabTitle}`;
-    }
-  }
 }

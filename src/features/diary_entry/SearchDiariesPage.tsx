@@ -8,30 +8,30 @@ import { fetchJournalEntryFromName } from "../../core/store/journal_entries/jour
 import { Tooltip } from 'react-tooltip'
 import { InfoBox } from "../../core/components/InfoBox";
 import { FaQuestionCircle } from "react-icons/fa";
-import '../styles/diary_entry/SearchDiariesPage.css';
+import styles from '../styles/diary_entry/SearchDiariesPage.module.css';
 
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();
     return (
-          <div className="search-page-container">
-            <div className="search-page-content">
-                <div className="search-diary-entries-title">
-                    <h1>SEARCH</h1>
-                    <h1>JOURNAL</h1>
-                    <h1>ENTRIES</h1>
+          <div className={styles['search-page-container']}>
+            <div className={styles['search-page-content']}>
+                <div className={styles['search-diary-entries-title']}>
+                    <h1 className={styles['title-h1']}>SEARCH</h1>
+                    <h1 className={styles['title-h1']}>JOURNAL</h1>
+                    <h1 className={styles['title-h1']}>ENTRIES</h1>
                 </div>
-                <div className="bottom-container">
-                    <span className="name-prompt-container">
+                <div className={styles['bottom-container']}>
+                    <span className={styles['name-prompt-container']}>
                         <NamePromptForm/> 
                     </span>
-                    <span className="static-info-box">
+                    <span className={styles['static-info-box']}>
                         <InfoBox 
                             text={MNEMOSYNE_BLURB} 
                             imageSrc={'https://upload.wikimedia.org/wikipedia/commons/8/87/Mnemosyne_-_the_Greek_goddess_of_Memory.jpg'}
                             link={"https://github.com/HalfMillennium/mnemo-app"}
                             linkText={"Check out the GitHub repo"}/>
                     </span>
-                    <FaQuestionCircle className="question-mark" size={24} color="#1e1e1e"/>
+                    <FaQuestionCircle className={styles['question-mark']} size={24} color="#1e1e1e"/>
                     <Tooltip anchorSelect=".question-mark" clickable place="bottom">
                         <h4>What? Why?</h4>
                         <InfoBox 
@@ -66,11 +66,12 @@ export function SearchDiariesPage() {
             }
         }
         return (
-            <form className="search-form" onSubmit={submitNamePrompt}>
+            <form className={styles['search-form']} onSubmit={submitNamePrompt}>
                 <input 
                     id="searchBox" 
                     type="text" 
                     name="namePromptInput"
+                    className={styles['search-input']}
                     value={form.namePromptInput}
                     placeholder="Search the diaries of the world..."
                     onChange={(e) => {
@@ -82,7 +83,7 @@ export function SearchDiariesPage() {
                     }
                     required    
                 />
-                <button type="submit" 
+                <button className={styles['search-button']} type="submit" 
                     onMouseEnter={() => setRandomNumber(getRandomNumber())}>
                     { WHIMSICAL_SYNONYMS_FOR_SEARCH[randomNumber] }
                 </button>

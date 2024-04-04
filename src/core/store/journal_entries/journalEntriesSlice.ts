@@ -14,12 +14,13 @@ interface JournalEntriesSlice {
   queries: {
     [name: string]: JournalEntry;
   };
-  pageState: number; // 0 -> home, 1 -> loading, 2 -> entry
+  /** If journal entry is being fetched */
+  loading: boolean;
 }
 
 const initialState: JournalEntriesSlice = {
   queries: {},
-  pageState: 0,
+  loading: false,
 };
 
 export interface JournalEntryPayload {
@@ -37,7 +38,7 @@ const journalEntriesSlice = createSlice({
         // Set entry for query to empty journal entry, as provided in the action
         console.log("Action pending...");
         state.queries[action.meta.arg.name] = action.meta.arg.journalEntry;
-        state.pageState = 1;
+        state.loading = true;
       })
       .addCase(
         fetchJournalEntryFromName.fulfilled,
@@ -45,7 +46,7 @@ const journalEntriesSlice = createSlice({
           // Once request has been fulfilled, update state to store new journal entry
           console.log("Action complete!");
           state.queries[action.payload.name] = action.payload.journalEntry;
-          state.pageState = 2;
+          state.loading = false;
         }
       )
       .addCase(fetchJournalEntryFromName.rejected, (state, action) => {
@@ -53,6 +54,7 @@ const journalEntriesSlice = createSlice({
           complete: true,
           content: "ERROR",
         };
+        state.loading = false;
       });
   },
 });

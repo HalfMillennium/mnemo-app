@@ -10,11 +10,12 @@ import { getModalColor } from './utils/quote_card';
 
 const QUOTE_ICON_SIZE = 42;
 
-export default function QuoteCard(props: {quote: string, entityName: string}) {
+export default function QuoteCard(props: {quote: string|undefined, entityName: string|undefined}) {
     const {quote, entityName} = props;
     const [modalOpen, setModelOpen] = useState(false);
     const handleModalOpen = () => setModelOpen(true);
     const handleModalClose = () => setModelOpen(false);
+    
     // Cast to SxProps below is necessary since 'bgcolor' string is not hard-coded, but will always be of type string
     const modalStyle = {
         position: 'absolute' as 'absolute',

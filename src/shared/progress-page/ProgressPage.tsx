@@ -1,14 +1,14 @@
 import React from "react";
-import './ProgressPage.css';
+import styles from './ProgressPage.module.css';
 import {Button, CircularProgress} from '@mui/material';
 
-export function ProgressPage(props: {entityName: string}) {
+export function ProgressPage(props: {entityName: string|undefined}) {
     return (
-        <div className="progress-container">
-            <div className="progress-bar">
+        <div className={styles['progress-container']}>
+            <div className={styles['progress-bar']}>
                 <CircularProgress color="inherit" size={128}/>
             </div>
-            <div className="progress-bar-text">
+            <div className={styles['progress-bar-text']}>
                 <p>Loading the intimate thoughts of {props.entityName}...</p>
                 <div>
                     <Button variant="outlined" color="inherit">¿Cancel?</Button>

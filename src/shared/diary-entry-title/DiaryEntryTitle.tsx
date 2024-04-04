@@ -1,7 +1,7 @@
 import React from "react";
 import './DiaryEntryTitle.css';
 
-export function DiaryEntryTitle(props: {entityName: string}) {
+export function DiaryEntryTitle(props: {entityName: string|undefined}) {
     const {entityName} = props;
     const quoteMark = <span className="quote-mark">"</span>;
     return (
