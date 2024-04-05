@@ -8,24 +8,20 @@ import { ProgressPage } from '../../shared/progress-page/ProgressPage';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../core/store/store';
 
+import {Helmet} from "react-helmet";
+
 export function DiaryEntryPage(props: {entityName: string|undefined}) {
     const {entityName} = props;
     const backLink = '/'; // TODO: Replace with actual back link
-    const [isLoading, setIsLoading] = React.useState(true);
     const loadingStatus = useSelector((state: RootState) => state.journalEntries.loading);
 
-    useEffect(() => {
-        setIsLoading(loadingStatus);
-        if(loadingStatus) {
-            document.title = 'MNEMO | Making magic happen...'
-        } else {
-            document.title = `MNEMO | The Journal of ${entityName}`;
-        }
-    }, [loadingStatus, entityName]);
-
-    if(!isLoading) {
+    if(!loadingStatus) {
         return (
-            <div className={styles['container']}>
+            <>
+                <Helmet>
+                    <title>| The Journal of {entityName}</title>
+                </Helmet>
+                <div className={styles['container']}>
                 <div className={styles['page-header']}>
                     <div className={styles['back-button-container']}>
                         <BackButton buttonText='BACK TO SEARCH' destination={backLink}/>
@@ -38,7 +34,15 @@ export function DiaryEntryPage(props: {entityName: string|undefined}) {
                     <QuoteCard quote={EXAMPLE_QUOTE} entityName={entityName}/>
                 </div>
             </div>
+            </>
         );
     }
-    return <ProgressPage entityName={entityName}/>;
+    return (
+        <>
+            <Helmet>
+                <title>| Making magic happen...</title>
+            </Helmet>
+            <ProgressPage entityName={entityName}/>
+        </>
+    );
 }

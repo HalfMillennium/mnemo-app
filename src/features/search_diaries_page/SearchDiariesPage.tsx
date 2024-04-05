@@ -12,6 +12,7 @@ import { updateName } from "../../core/store/name_prompt/namePromptSlice";
 import { RootState } from "../../core/store/store";
 import styles from './SearchDiariesPage.module.css';
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();
@@ -28,36 +29,41 @@ export function SearchDiariesPage() {
         }
     }, [loadingStatus]);
     return (
-        <div className={styles['search-page-container']}>
-            <div className={styles['search-page-content']}>
-                <div className={styles['search-diary-entries-title']}>
-                    <h1 className={styles['title-h1']}>SEARCH</h1>
-                    <h1 className={styles['title-h1']}>JOURNAL</h1>
-                    <h1 className={styles['title-h1']}>ENTRIES</h1>
-                </div>
-                <div className={styles['bottom-container']}>
-                    <span className={styles['name-prompt-container']}>
-                        <NamePromptForm/> 
-                    </span>
-                    <span className={styles['static-info-box']}>
-                        <InfoBox 
-                            text={MNEMOSYNE_BLURB} 
-                            imageSrc={'https://upload.wikimedia.org/wikipedia/commons/8/87/Mnemosyne_-_the_Greek_goddess_of_Memory.jpg'}
-                            link={"https://github.com/HalfMillennium/mnemo-app"}
-                            linkText={"Check out the GitHub repo"}/>
-                    </span>
-                    <FaQuestionCircle id="question-mark" className={styles['question-mark']} size={24} color="#1e1e1e"/>
-                    <Tooltip anchorSelect="#question-mark" clickable place="bottom">
-                        <h4>What? Why?</h4>
-                        <InfoBox 
-                            text={MNEMOSYNE_BLURB} 
-                            imageSrc={'https://upload.wikimedia.org/wikipedia/commons/8/87/Mnemosyne_-_the_Greek_goddess_of_Memory.jpg'}
-                            link={"https://github.com/HalfMillennium/mnemo-app"}
-                            linkText={"Check out the GitHub repo"}/>
-                    </Tooltip>
+        <>
+            <Helmet>
+                <title>MNEMO | Search diary entries</title>
+            </Helmet>
+            <div className={styles['search-page-container']}>
+                <div className={styles['search-page-content']}>
+                    <div className={styles['search-diary-entries-title']}>
+                        <h1 className={styles['title-h1']}>SEARCH</h1>
+                        <h1 className={styles['title-h1']}>JOURNAL</h1>
+                        <h1 className={styles['title-h1']}>ENTRIES</h1>
+                    </div>
+                    <div className={styles['bottom-container']}>
+                        <span className={styles['name-prompt-container']}>
+                            <NamePromptForm/> 
+                        </span>
+                        <span className={styles['static-info-box']}>
+                            <InfoBox 
+                                text={MNEMOSYNE_BLURB} 
+                                imageSrc={'https://upload.wikimedia.org/wikipedia/commons/8/87/Mnemosyne_-_the_Greek_goddess_of_Memory.jpg'}
+                                link={"https://github.com/HalfMillennium/mnemo-app"}
+                                linkText={"Check out the GitHub repo"}/>
+                        </span>
+                        <FaQuestionCircle id="question-mark" className={styles['question-mark']} size={24} color="#1e1e1e"/>
+                        <Tooltip anchorSelect="#question-mark" clickable place="bottom">
+                            <h4>What? Why?</h4>
+                            <InfoBox 
+                                text={MNEMOSYNE_BLURB} 
+                                imageSrc={'https://upload.wikimedia.org/wikipedia/commons/8/87/Mnemosyne_-_the_Greek_goddess_of_Memory.jpg'}
+                                link={"https://github.com/HalfMillennium/mnemo-app"}
+                                linkText={"Check out the GitHub repo"}/>
+                        </Tooltip>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 
     function getRandomNumber() {
