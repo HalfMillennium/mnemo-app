@@ -1,44 +1,18 @@
-#searchContainer {
-    display: flex;
-    align-items: center;
-}
-
-#searchBox {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-}
-
-#getDiaryEntryBtn {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-}
-
-#getDiaryEntryBtn:hover {
-    background-color: #45a049;
-}
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
 }
 
-.container {
+.search-page-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding-top: 10rem;
 }
 
-.content {
+.search-page-content {
     text-align: center;
     padding-bottom: 25rem;
 }
@@ -52,7 +26,7 @@ body {
     opacity: 0.75;
 }
 
-h1 {
+.title-h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
 }
@@ -61,15 +35,17 @@ h1 {
     display: inline-block;
 }
 
-input[type="text"] {
+.search-input[type="text"] {
     padding: 10px;
-    font-size: 1rem;
+    font-size: 16px;
     border: 2px solid #ccc;
     border-radius: 5px 0 0 5px;
     width: 30rem;
+    border: 1px solid #ccc;
+    outline: none;
 }
 
-button {
+.search-button {
     padding: 10px 20px;
     font-size: 1rem;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -80,7 +56,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.search-button:hover {
     background-color: #b36b00;
 }
 
@@ -100,11 +76,23 @@ button:hover {
     flex: 1
 }
 
-@media (max-width: 600px) {
+.static-info-box {
+    margin-top: 3rem;
+    visibility: hidden;
+}
+
+@media (max-width: 630px) {
     .search-diary-entries-title {
         text-align: center;
     }
     input[type="text"] {
         width: 15rem;
+    }
+    .content {
+        padding-top: 10rem;
+    }
+    .static-info-box {
+        background-color: rgba(22, 22, 22, 0.8);
+        visibility: visible;
     }
 }

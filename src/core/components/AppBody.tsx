@@ -1,18 +1,27 @@
 import React from "react";
-import {DiaryEntryPage} from '../../features/diary_entry';
-import { SearchDiariesPage } from "../../features/diary_entry";
+import { Route, Routes, Link } from 'react-router-dom';
+import {DiaryEntryPage} from '../../features/diary_entry_page';
+import { SearchDiariesPage } from "../../features/search_diaries_page";
 import '../styles/AppBody.css';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 export function AppBody() {
-  let currentTabTitle = 'Search Entries'
+  const [entityName, setEntityName] = useState('');
+  const currentEntityName = useSelector((state: RootState) => state.namePrompt.name);
+
   useEffect(() => {
-    document.title = `MNEMO | ${currentTabTitle}`
-  }, []);
+    setEntityName(currentEntityName ?? '');
+  }, [currentEntityName]);
+
   return (
       <div className="app-body">
         <div className="app-body-main">
-          <SearchDiariesPage/>
+          <Routes>
+            <Route path="/" element={<SearchDiariesPage/>} />
+            <Route path="/journal" element={<DiaryEntryPage entityName={entityName}/>} />
+          </Routes>
         </div>
       </div>
   );

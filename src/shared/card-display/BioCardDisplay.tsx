@@ -1,7 +1,7 @@
 import React from "react";
 import './BioCardDisplay.css';
 
-export function BioCardDisplay(props: {entityName: string}) {
+export function BioCardDisplay(props: {entityName: string|undefined}) {
     return (
         <div className="bio-card-parent">
             <div>

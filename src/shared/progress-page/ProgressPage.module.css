@@ -1,0 +1,19 @@
+.progress-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: fit-content;
+    flex: 2;
+}
+
+.progress-bar-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    flex: 4;
+}

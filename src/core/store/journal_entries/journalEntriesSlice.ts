@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { updateName } from "../name_prompt/namePromptSlice";
 
-interface JournalEntry {
+export interface JournalEntry {
   // undefined -> not started, false -> failed, true -> succeeded
   complete: boolean | undefined;
   content: string | undefined;
@@ -14,10 +14,13 @@ interface JournalEntriesSlice {
   queries: {
     [name: string]: JournalEntry;
   };
+  /** If journal entry is being fetched */
+  loading: boolean;
 }
 
 const initialState: JournalEntriesSlice = {
   queries: {},
+  loading: false,
 };
 
 export interface JournalEntryPayload {
@@ -35,6 +38,7 @@ const journalEntriesSlice = createSlice({
         // Set entry for query to empty journal entry, as provided in the action
         console.log("Action pending...");
         state.queries[action.meta.arg.name] = action.meta.arg.journalEntry;
+        state.loading = true;
       })
       .addCase(
         fetchJournalEntryFromName.fulfilled,
@@ -42,6 +46,7 @@ const journalEntriesSlice = createSlice({
           // Once request has been fulfilled, update state to store new journal entry
           console.log("Action complete!");
           state.queries[action.payload.name] = action.payload.journalEntry;
+          state.loading = false;
         }
       )
       .addCase(fetchJournalEntryFromName.rejected, (state, action) => {
@@ -49,6 +54,7 @@ const journalEntriesSlice = createSlice({
           complete: true,
           content: "ERROR",
         };
+        state.loading = false;
       });
   },
 });

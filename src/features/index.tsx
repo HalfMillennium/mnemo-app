@@ -1,2 +1,2 @@
-export * from './converse/Converse'
-export * from './diary_entry'
+export * from './diary_entry_page/DiaryEntryPage'
+export * from './search_diaries_page/SearchDiariesPage'
