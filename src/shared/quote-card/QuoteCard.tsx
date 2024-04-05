@@ -1,12 +1,12 @@
 import React from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaRegShareSquare, FaRegCopy } from "react-icons/fa";
 import { IoShareSocialOutline } from "react-icons/io5";
-import '../styles/diary_entry/QuoteCard.css';
+import './QuoteCard.css';
 import { Tooltip } from 'react-tooltip';
-import { BioCardDisplay } from '../../shared/card-display/BioCardDisplay';
+import { BioCardDisplay } from '../card-display/BioCardDisplay';
 import { IconButton, Fab, Modal, Box, SxProps, Theme  } from '@mui/material';
 import { useState } from 'react';
-import { getModalColor } from './utils/quote_card';
+import { getModalColor } from '../utils/quote_card';
 
 const QUOTE_ICON_SIZE = 42;
 

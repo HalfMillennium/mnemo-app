@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react"
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
-import { MNEMOSYNE_BLURB } from "./utils/search_diaries_page";
+import { MNEMOSYNE_BLURB } from "../utils/search_diaries_page";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../core/store/store";
@@ -8,7 +8,7 @@ import { fetchJournalEntryFromName } from "../../core/store/journal_entries/jour
 import { Tooltip } from 'react-tooltip'
 import { InfoBox } from "../../core/components/InfoBox";
 import { FaQuestionCircle } from "react-icons/fa";
-import styles from '../styles/diary_entry/SearchDiariesPage.module.css';
+import styles from './SearchDiariesPage.module.css';
 
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();

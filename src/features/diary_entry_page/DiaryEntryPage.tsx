@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import QuoteCard from './QuoteCard'
+import QuoteCard from '../../shared/quote-card/QuoteCard'
 import { EXAMPLE_QUOTE } from '../../testing/example_quote';
-import styles from '../styles/diary_entry/DiaryEntryPage.module.css';
+import styles from './DiaryEntryPage.module.css';
 import { BackButton } from '../../shared/back-button/BackButton';
 import { DiaryEntryTitle } from '../../shared/diary-entry-title/DiaryEntryTitle';
 import { ProgressPage } from '../../shared/progress-page/ProgressPage';

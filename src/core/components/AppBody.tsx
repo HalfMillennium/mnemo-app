@@ -1,8 +1,7 @@
 import React from "react";
 import { Route, Routes, Link } from 'react-router-dom';
-import {DiaryEntryPage} from '../../features/diary_entry';
-import { SearchDiariesPage } from "../../features/diary_entry";
-import {ProgressPage} from "../../shared/progress-page/ProgressPage";
+import {DiaryEntryPage} from '../../features/diary_entry_page';
+import { SearchDiariesPage } from "../../features/search_diaries_page";
 import '../styles/AppBody.css';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
