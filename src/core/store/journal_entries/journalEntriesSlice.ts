@@ -63,8 +63,6 @@ export const fetchJournalEntryFromName = createAsyncThunk(
   "namePrompt/fetchJournalEntryFromName",
   async (payload: JournalEntryPayload): Promise<JournalEntryPayload> => {
     // TODO: replace example logic with actual API request
-    const dispatch = useDispatch();
-    dispatch(updateName(payload.name));
     await new Promise((resolve) => setTimeout(resolve, 10000));
     return {
       name: payload.name,

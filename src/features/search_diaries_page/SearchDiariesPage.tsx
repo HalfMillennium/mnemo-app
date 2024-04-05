@@ -2,19 +2,28 @@ import React, { FormEvent, useEffect } from "react"
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
 import { MNEMOSYNE_BLURB } from "../utils/search_diaries_page";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../core/store/store";
 import { fetchJournalEntryFromName } from "../../core/store/journal_entries/journalEntriesSlice";
 import { Tooltip } from 'react-tooltip'
 import { InfoBox } from "../../core/components/InfoBox";
 import { FaQuestionCircle } from "react-icons/fa";
+import { updateName } from "../../core/store/name_prompt/namePromptSlice";
+import { RootState } from "../../core/store/store";
 import styles from './SearchDiariesPage.module.css';
 
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();
+    const loadingStatus = useSelector((state: RootState) => state.journalEntries.loading);
+    const [placeholderText, setPlaceholderText] = useState('Search the diaries of the world...');
+
     useEffect(() => {
-        document.title = 'MNEMO | Search journal entries'
-    }, []);
+        document.title = 'MNEMO | Search journal entries';
+        if(loadingStatus) {
+            const mysteriousAscii: string = "@#^*()_+{}[]|\\:;\"'<>,.?/~`%$£=&!§±¶•ªº–≠≈∆∏∑Ωµ√∞≤≥÷";
+            setPlaceholderText(mysteriousAscii);
+        }
+    }, [loadingStatus]);
     return (
           <div className={styles['search-page-container']}>
             <div className={styles['search-page-content']}>
@@ -53,13 +62,15 @@ export function SearchDiariesPage() {
     }
 
     function NamePromptForm() {
-        const [form, setForm] = useState({ namePromptInput: '' });
         const [randomNumber, setRandomNumber] = useState(0);
-         
+        const [form, setForm] = useState({ namePromptInput: '' });
+
         function submitNamePrompt(event: FormEvent<HTMLFormElement>) {
             event.preventDefault();
             let formValue = form.namePromptInput;
             if(formValue) {
+                dispatch(updateName(formValue));
+                console.log(formValue);
                 dispatch(
                     fetchJournalEntryFromName({
                         name: formValue,
@@ -75,19 +86,22 @@ export function SearchDiariesPage() {
                     type="text" 
                     name="namePromptInput"
                     className={styles['search-input']}
+                    disabled={loadingStatus}
                     value={form.namePromptInput}
-                    placeholder="Search the diaries of the world..."
+                    placeholder={placeholderText}
                     onChange={(e) => {
                             if(form.namePromptInput !== e.target.value) {
                                 setForm((prev) => ({ ...prev, namePromptInput: e.target.value }))
-                                console.log('Change!')
                             }
                         }
                     }
                     required    
                 />
-                <button className={styles['search-button']} type="submit" 
-                    onMouseEnter={() => setRandomNumber(getRandomNumber())}>
+                <button 
+                    className={styles['search-button']}
+                    type="submit" 
+                    onMouseEnter={() => setRandomNumber(getRandomNumber())}
+                    disabled={loadingStatus}>
                     { WHIMSICAL_SYNONYMS_FOR_SEARCH[randomNumber] }
                 </button>
             </form>
