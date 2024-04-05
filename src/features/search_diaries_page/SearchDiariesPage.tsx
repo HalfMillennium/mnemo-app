@@ -34,8 +34,8 @@ export function SearchDiariesPage() {
                             link={"https://github.com/HalfMillennium/mnemo-app"}
                             linkText={"Check out the GitHub repo"}/>
                     </span>
-                    <FaQuestionCircle className={styles['question-mark']} size={24} color="#1e1e1e"/>
-                    <Tooltip anchorSelect=".question-mark" clickable place="bottom">
+                    <FaQuestionCircle id="question-mark" className={styles['question-mark']} size={24} color="#1e1e1e"/>
+                    <Tooltip anchorSelect="#question-mark" clickable place="bottom">
                         <h4>What? Why?</h4>
                         <InfoBox 
                             text={MNEMOSYNE_BLURB} 
