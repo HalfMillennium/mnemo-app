@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react"
+import React, { FormEvent, useEffect } from "react"
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
 import { MNEMOSYNE_BLURB } from "../utils/search_diaries_page";
 import { useState } from "react";
@@ -12,6 +12,9 @@ import styles from './SearchDiariesPage.module.css';
 
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();
+    useEffect(() => {
+        document.title = 'MNEMO | Search journal entries'
+    }, []);
     return (
           <div className={styles['search-page-container']}>
             <div className={styles['search-page-content']}>

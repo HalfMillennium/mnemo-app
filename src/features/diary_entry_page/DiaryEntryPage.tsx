@@ -16,6 +16,11 @@ export function DiaryEntryPage(props: {entityName: string|undefined}) {
 
     useEffect(() => {
         setIsLoading(loadingStatus);
+        if(loadingStatus) {
+            document.title = 'MNEMO | Making magic happen...'
+        } else {
+            document.title = `MNEMO | The Journal of ${entityName}`;
+        }
     }, [loadingStatus]);
 
     if(!isLoading) {
