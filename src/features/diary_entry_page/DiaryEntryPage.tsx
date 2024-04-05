@@ -10,7 +10,7 @@ import { RootState } from '../../core/store/store';
 
 export function DiaryEntryPage(props: {entityName: string|undefined}) {
     const {entityName} = props;
-    const backLink = '/place'; // TODO: Replace with actual back link
+    const backLink = '/'; // TODO: Replace with actual back link
     const [isLoading, setIsLoading] = React.useState(true);
     const loadingStatus = useSelector((state: RootState) => state.journalEntries.loading);
 
@@ -21,7 +21,7 @@ export function DiaryEntryPage(props: {entityName: string|undefined}) {
         } else {
             document.title = `MNEMO | The Journal of ${entityName}`;
         }
-    }, [loadingStatus]);
+    }, [loadingStatus, entityName]);
 
     if(!isLoading) {
         return (

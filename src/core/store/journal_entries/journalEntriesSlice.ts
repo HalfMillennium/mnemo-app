@@ -1,7 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { updateName } from "../name_prompt/namePromptSlice";
 
 export interface JournalEntry {
   // undefined -> not started, false -> failed, true -> succeeded
@@ -50,6 +48,7 @@ const journalEntriesSlice = createSlice({
         }
       )
       .addCase(fetchJournalEntryFromName.rejected, (state, action) => {
+        console.log("Action rejected.");
         state.queries[action.meta.arg.name] = {
           complete: true,
           content: "ERROR",
@@ -63,8 +62,6 @@ export const fetchJournalEntryFromName = createAsyncThunk(
   "namePrompt/fetchJournalEntryFromName",
   async (payload: JournalEntryPayload): Promise<JournalEntryPayload> => {
     // TODO: replace example logic with actual API request
-    const dispatch = useDispatch();
-    dispatch(updateName(payload.name));
     await new Promise((resolve) => setTimeout(resolve, 10000));
     return {
       name: payload.name,

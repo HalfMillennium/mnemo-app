@@ -60,6 +60,11 @@ body {
     background-color: #b36b00;
 }
 
+.search-button:disabled {
+    background-color: rgb(93, 93, 93);
+    cursor: not-allowed;
+}
+
 .question-mark {
     flex: 1;
     margin-top: 6rem;

@@ -11,7 +11,6 @@ function App() {
   const loadingStatus = useSelector((state: RootState) => state.journalEntries.loading);
 
   const [pageClass, setPageClass] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if(location.pathname === '/journal') {
@@ -20,7 +19,6 @@ function App() {
         setPageClass('bg-progress-page');
         return;
       }
-      console.log('wtf');
       setPageClass('bg-diary-entry');
       return;
     }
