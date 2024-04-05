@@ -21,7 +21,7 @@ export function DiaryEntryPage(props: {entityName: string|undefined}) {
         } else {
             document.title = `MNEMO | The Journal of ${entityName}`;
         }
-    }, [loadingStatus]);
+    }, [loadingStatus, entityName]);
 
     if(!isLoading) {
         return (

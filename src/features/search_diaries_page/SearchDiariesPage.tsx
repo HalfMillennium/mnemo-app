@@ -11,21 +11,24 @@ import { FaQuestionCircle } from "react-icons/fa";
 import { updateName } from "../../core/store/name_prompt/namePromptSlice";
 import { RootState } from "../../core/store/store";
 import styles from './SearchDiariesPage.module.css';
+import { useNavigate } from "react-router-dom";
 
 export function SearchDiariesPage() {
     const dispatch = useDispatch<AppDispatch>();
     const loadingStatus = useSelector((state: RootState) => state.journalEntries.loading);
     const [placeholderText, setPlaceholderText] = useState('Search the diaries of the world...');
+    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = 'MNEMO | Search journal entries';
         if(loadingStatus) {
             const mysteriousAscii: string = "@#^*()_+{}[]|\\:;\"'<>,.?/~`%$£=&!§±¶•ªº–≠≈∆∏∑Ωµ√∞≤≥÷";
             setPlaceholderText(mysteriousAscii);
+            navigate("/journal");
         }
     }, [loadingStatus]);
     return (
-          <div className={styles['search-page-container']}>
+        <div className={styles['search-page-container']}>
             <div className={styles['search-page-content']}>
                 <div className={styles['search-diary-entries-title']}>
                     <h1 className={styles['title-h1']}>SEARCH</h1>
