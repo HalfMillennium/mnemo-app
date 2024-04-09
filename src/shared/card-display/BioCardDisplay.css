@@ -6,8 +6,8 @@
 }
 
 .bio-image {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 1rem;
 }
 
@@ -27,6 +27,10 @@
     }
     .bio-text {
         text-align: center;
+    }
+    .bio-image {
+        height: 125px;
+        width: 125px;
     }
 }
 
