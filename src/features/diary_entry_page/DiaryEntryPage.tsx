@@ -22,18 +22,18 @@ export function DiaryEntryPage(props: {entityName: string|undefined}) {
                     <title>| The Journal of {entityName}</title>
                 </Helmet>
                 <div className={styles['container']}>
-                <div className={styles['page-header']}>
-                    <div className={styles['back-button-container']}>
-                        <BackButton buttonText='BACK TO SEARCH' destination={backLink}/>
+                    <div className={styles['page-header']}>
+                        <div className={styles['back-button-container']}>
+                            <BackButton buttonText='BACK TO SEARCH' destination={backLink}/>
+                        </div>
+                        <div className={styles['diary-entry-title']}>
+                            <DiaryEntryTitle entityName={entityName}/>
+                        </div>
                     </div>
-                    <div className={styles['diary-entry-title']}>
-                        <DiaryEntryTitle entityName={entityName}/>
+                    <div className={styles['quote-card-container']}>
+                        <QuoteCard quote={EXAMPLE_QUOTE} entityName={entityName}/>
                     </div>
                 </div>
-                <div className={styles['quote-card-container']}>
-                    <QuoteCard quote={EXAMPLE_QUOTE} entityName={entityName}/>
-                </div>
-            </div>
             </>
         );
     }
