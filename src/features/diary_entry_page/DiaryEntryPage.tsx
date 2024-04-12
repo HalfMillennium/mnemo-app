@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import QuoteCard from '../../shared/quote-card/QuoteCard'
 import { EXAMPLE_QUOTE } from '../../testing/example_quote';
 import styles from './DiaryEntryPage.module.css';

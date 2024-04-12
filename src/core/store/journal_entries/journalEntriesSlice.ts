@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { updateName } from "../name_prompt/namePromptSlice";
 
 export interface JournalEntry {
   // undefined -> not started, false -> failed, true -> succeeded
@@ -16,7 +17,7 @@ interface JournalEntriesSlice {
   loading: boolean;
 }
 
-const initialState: JournalEntriesSlice = {
+export const initialState: JournalEntriesSlice = {
   queries: {},
   loading: false,
 };
@@ -59,8 +60,13 @@ const journalEntriesSlice = createSlice({
 });
 
 export const fetchJournalEntryFromName = createAsyncThunk(
-  "namePrompt/fetchJournalEntryFromName",
-  async (payload: JournalEntryPayload): Promise<JournalEntryPayload> => {
+  "journalEntries/fetchJournalEntryFromName",
+  async (
+    payload: JournalEntryPayload,
+    { dispatch }
+  ): Promise<JournalEntryPayload> => {
+    // Update namePrompt.name in the store
+    dispatch(updateName(payload.name));
     // TODO: replace example logic with actual API request
     await new Promise((resolve) => setTimeout(resolve, 10000));
     return {

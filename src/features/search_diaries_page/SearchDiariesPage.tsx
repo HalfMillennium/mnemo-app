@@ -8,7 +8,6 @@ import { fetchJournalEntryFromName } from "../../core/store/journal_entries/jour
 import { Tooltip } from 'react-tooltip'
 import { InfoBox } from "../../core/components/InfoBox";
 import { FaQuestionCircle } from "react-icons/fa";
-import { updateName } from "../../core/store/name_prompt/namePromptSlice";
 import { RootState } from "../../core/store/store";
 import styles from './SearchDiariesPage.module.css';
 import { useNavigate } from "react-router-dom";
@@ -27,7 +26,7 @@ export function SearchDiariesPage() {
             setPlaceholderText(mysteriousAscii);
             navigate("/journal");
         }
-    }, [loadingStatus]);
+    }, [loadingStatus, navigate]);
     return (
         <>
             <Helmet>
@@ -78,18 +77,16 @@ export function SearchDiariesPage() {
             event.preventDefault();
             let formValue = form.namePromptInput;
             if(formValue) {
-                dispatch(updateName(formValue));
-                console.log(formValue);
                 dispatch(
                     fetchJournalEntryFromName({
                         name: formValue,
                         journalEntry: { complete: false, content: undefined },
                     })
-                );
+                )
             }
         }
         return (
-            <form className={styles['search-form']} onSubmit={submitNamePrompt}>
+            <form role="form" className={styles['search-form']} onSubmit={submitNamePrompt}>
                 <input 
                     id="searchBox" 
                     type="text" 
