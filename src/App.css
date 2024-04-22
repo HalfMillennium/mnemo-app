@@ -22,6 +22,10 @@ video {
   filter: grayscale(75%)
 }
 
+.bg-error {
+  filter: sepia(1) hue-rotate(-60deg);
+}
+
 .app-body {
   align-items: center;
   justify-content: center;

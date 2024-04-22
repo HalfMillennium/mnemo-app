@@ -1,0 +1,42 @@
+.error-body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+.error-card {
+    background-color: rgba(25, 25, 25, 0.75);
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    /* Optional: Set a maximum width */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+a:hover {
+    background-color: #222;
+}
