@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/InfoBox.css";
+import "./InfoBox.css";
 
 export function InfoBox(props: {
   text: string;
