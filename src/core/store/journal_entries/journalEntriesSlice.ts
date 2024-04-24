@@ -15,11 +15,13 @@ interface JournalEntriesSlice {
   };
   /** If journal entry is being fetched */
   loading: boolean;
+  error: string;
 }
 
 export const initialState: JournalEntriesSlice = {
   queries: {},
   loading: false,
+  error: "",
 };
 
 export interface JournalEntryPayload {
@@ -30,7 +32,11 @@ export interface JournalEntryPayload {
 const journalEntriesSlice = createSlice({
   name: "journalEntries",
   initialState,
-  reducers: {},
+  reducers: {
+    clearError: (state) => {
+      state.error = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchJournalEntryFromName.pending, (state, action) => {
@@ -55,6 +61,7 @@ const journalEntriesSlice = createSlice({
           content: "ERROR",
         };
         state.loading = false;
+        state.error = "Error fetching journal entry: " + action.error.message;
       });
   },
 });
@@ -80,3 +87,5 @@ export const fetchJournalEntryFromName = createAsyncThunk(
 );
 
 export default journalEntriesSlice.reducer;
+
+export const { clearError } = journalEntriesSlice.actions;

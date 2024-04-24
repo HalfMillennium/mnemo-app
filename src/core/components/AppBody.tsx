@@ -1,11 +1,12 @@
 import React from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { DiaryEntryPage } from "../../features/diary_entry_page";
 import { SearchDiariesPage } from "../../features/search_diaries_page";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import styles from "../styles/AppBody.module.css";
 import { ErrorPage } from "../../shared/error-page";
+import { ROUTING_ERROR_TEXT } from "./utils";
 
 export function AppBody() {
   const currentEntityName = useSelector(
@@ -21,7 +22,7 @@ export function AppBody() {
             path="/journal"
             element={<DiaryEntryPage entityName={currentEntityName} />}
           />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage text={ROUTING_ERROR_TEXT} />} />
         </Routes>
       </div>
     </div>

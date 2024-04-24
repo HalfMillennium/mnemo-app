@@ -1,13 +1,17 @@
 import React from "react";
-import { render, waitFor } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { Store, configureStore } from '@reduxjs/toolkit';
-import { BrowserRouter } from 'react-router-dom';
-import {DiaryEntryPage} from './DiaryEntryPage';
-import journalEntriesSlice, { initialState as journalEntriesInitialState } from "../../core/store/journal_entries/journalEntriesSlice";
-import namePromptSlice, {initialState as namePromptInitialState} from "../../core/store/name_prompt/namePromptSlice";
+import { render, waitFor } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { Store, configureStore } from "@reduxjs/toolkit";
+import { BrowserRouter } from "react-router-dom";
+import { DiaryEntryPage } from "./DiaryEntryPage";
+import journalEntriesSlice, {
+  initialState as journalEntriesInitialState,
+} from "../../core/store/journal_entries/journalEntriesSlice";
+import namePromptSlice, {
+  initialState as namePromptInitialState,
+} from "../../core/store/name_prompt/namePromptSlice";
 
-describe('DiaryEntryPage', () => {
+describe("DiaryEntryPage", () => {
   let store: Store;
 
   function setUp(
@@ -22,11 +26,11 @@ describe('DiaryEntryPage', () => {
       preloadedState: {
         journalEntries: journalEntriesState,
         namePrompt: namePromptState,
-      }
+      },
     });
   }
 
-  it('renders without crashing', () => {
+  it("renders without crashing", () => {
     setUp();
     render(
       <Provider store={store}>
@@ -37,8 +41,8 @@ describe('DiaryEntryPage', () => {
     );
   });
 
-  it('shows the correct title when loading', async () => {
-    setUp({queries: {}, loading: true});
+  it("shows the correct title when loading", async () => {
+    setUp({ queries: {}, loading: true, error: "" });
 
     render(
       <Provider store={store}>
@@ -48,10 +52,12 @@ describe('DiaryEntryPage', () => {
       </Provider>
     );
 
-    await waitFor(() => expect(document.title).toBe('| Making magic happen...'));
+    await waitFor(() =>
+      expect(document.title).toBe("| Making magic happen...")
+    );
   });
 
-  it('shows the correct title when not loading', async () => {
+  it("shows the correct title when not loading", async () => {
     setUp();
 
     render(
@@ -62,6 +68,8 @@ describe('DiaryEntryPage', () => {
       </Provider>
     );
 
-    await waitFor(() => expect(document.title).toBe('| The Journal of Test Entity'));
+    await waitFor(() =>
+      expect(document.title).toBe("| The Journal of Test Entity")
+    );
   });
 });
