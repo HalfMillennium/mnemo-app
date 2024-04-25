@@ -8,9 +8,17 @@ import namePromptSlice from "../../core/store/name_prompt/namePromptSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { SearchDiariesPage } from "./SearchDiariesPage";
 
+const mockUsedNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...(jest.requireActual("react-router-dom") as any),
+  useNavigate: () => mockUsedNavigate,
+}));
+
 describe("SearchDiariesPage", () => {
   let store: ReturnType<typeof configureStore>;
   let dispatchSpy: jest.SpyInstance;
+  let navigateSpy: jest.SpyInstance;
 
   beforeEach(() => {
     store = configureStore({
@@ -19,15 +27,14 @@ describe("SearchDiariesPage", () => {
         namePrompt: namePromptSlice,
       },
     });
-
-    dispatchSpy = jest.spyOn(store, 'dispatch');
+    dispatchSpy = jest.spyOn(store, "dispatch");
   });
 
   afterEach(() => {
     dispatchSpy.mockRestore();
   });
 
-  it("dispatches updateName and fetchJournalEntryFromEntityName actions", async () => {
+  it("navigates to DiaryEntryPage when form is submitted", async () => {
     const { getByRole } = render(
       <Provider store={store}>
         <BrowserRouter>
@@ -41,8 +48,7 @@ describe("SearchDiariesPage", () => {
     });
 
     fireEvent.submit(getByRole("form"));
-    
-    // dispatch w/ Function => async thunk => fetchJournalEntryFromName
-    expect(dispatchSpy).toHaveBeenCalledWith(expect.any(Function));
+
+    expect(mockUsedNavigate).toHaveBeenCalled();
   });
 });

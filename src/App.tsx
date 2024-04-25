@@ -5,18 +5,19 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./core/store/store";
+import { LoadingStatus } from "./core/store/journal_entries/journalEntriesSlice";
 
 function App() {
   const location = useLocation();
-  const loadingStatus = useSelector(
+  const loadingStatus: LoadingStatus = useSelector(
     (state: RootState) => state.journalEntries.loading
   );
 
   const [pageClass, setPageClass] = useState("");
 
   useEffect(() => {
-    if (location.pathname === "/journal") {
-      if (loadingStatus) {
+    if (location.pathname.includes("/journal")) {
+      if (loadingStatus === LoadingStatus.PENDING) {
         // Diary entry is loading, set appropriate page class
         setPageClass("bg-progress-page");
         return;

@@ -2,25 +2,20 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { DiaryEntryPage } from "../../../features/diary_entry_page";
 import { SearchDiariesPage } from "../../../features/search_diaries_page";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 import styles from "./AppBody.module.css";
 import { ErrorPage } from "../../../shared/error-page";
 import { ROUTING_ERROR_TEXT } from "../utils";
 
 export function AppBody() {
-  const currentEntityName = useSelector(
-    (state: RootState) => state.namePrompt.name
-  );
-
   return (
     <div className={styles["app-body"]}>
       <div className={styles["app-body-main"]}>
         <Routes>
-          <Route path="/" element={<SearchDiariesPage />} />
+          <Route path="/" element={<SearchDiariesPage />} index />
           <Route
-            path="/journal"
-            element={<DiaryEntryPage entityName={currentEntityName} />}
+            path="/journal/:entityName"
+            element={<DiaryEntryPage />}
+            index
           />
           <Route path="*" element={<ErrorPage text={ROUTING_ERROR_TEXT} />} />
         </Routes>

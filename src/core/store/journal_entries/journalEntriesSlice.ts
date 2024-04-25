@@ -8,19 +8,26 @@ export interface JournalEntry {
   content: string | undefined;
 }
 
+export enum LoadingStatus {
+  IDLE = "idle",
+  PENDING = "pending",
+  SUCCESS = "success",
+  FAILURE = "failure",
+}
+
 interface JournalEntriesSlice {
   /** Maps prompt query values to journal entry results */
   queries: {
     [name: string]: JournalEntry;
   };
   /** If journal entry is being fetched */
-  loading: boolean;
+  loading: LoadingStatus;
   error: string;
 }
 
 export const initialState: JournalEntriesSlice = {
   queries: {},
-  loading: false,
+  loading: LoadingStatus.IDLE,
   error: "",
 };
 
@@ -41,26 +48,23 @@ const journalEntriesSlice = createSlice({
     builder
       .addCase(fetchJournalEntryFromName.pending, (state, action) => {
         // Set entry for query to empty journal entry, as provided in the action
-        console.log("Action pending...");
         state.queries[action.meta.arg.name] = action.meta.arg.journalEntry;
-        state.loading = true;
+        state.loading = LoadingStatus.PENDING;
       })
       .addCase(
         fetchJournalEntryFromName.fulfilled,
         (state, action: PayloadAction<JournalEntryPayload>) => {
           // Once request has been fulfilled, update state to store new journal entry
-          console.log("Action complete!");
           state.queries[action.payload.name] = action.payload.journalEntry;
-          state.loading = false;
+          state.loading = LoadingStatus.SUCCESS;
         }
       )
       .addCase(fetchJournalEntryFromName.rejected, (state, action) => {
-        console.log("Action rejected.");
         state.queries[action.meta.arg.name] = {
           complete: true,
           content: "ERROR",
         };
-        state.loading = false;
+        state.loading = LoadingStatus.FAILURE;
         state.error = "Error fetching journal entry: " + action.error.message;
       });
   },

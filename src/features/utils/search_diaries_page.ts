@@ -4,3 +4,5 @@ export const MNEMOSYNE_BLURB =
 export function stripEntityName(entityName: string): string {
   return entityName.trim().replace(/\s/g, "_").toLowerCase();
 }
+
+export const GENERIC_ERROR_TEXT = "Sorry! Something went wrong.";

@@ -4,7 +4,10 @@ import { MNEMOSYNE_BLURB } from "../utils/search_diaries_page";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../core/store/store";
-import { fetchJournalEntryFromName } from "../../core/store/journal_entries/journalEntriesSlice";
+import {
+  LoadingStatus,
+  fetchJournalEntryFromName,
+} from "../../core/store/journal_entries/journalEntriesSlice";
 import { Tooltip } from "react-tooltip";
 import { InfoBox } from "../../core/components/info-box";
 import { FaQuestionCircle } from "react-icons/fa";
@@ -22,14 +25,15 @@ export function SearchDiariesPage() {
     "Search the diaries of the world..."
   );
   const navigate = useNavigate();
+  const [entityName, setEntityName] = useState("");
 
   useEffect(() => {
-    document.title = "MNEMO | Search journal entries";
-    if (loadingStatus) {
+    //document.title = "MNEMO | Search journal entries";
+    if (loadingStatus === LoadingStatus.PENDING) {
       const mysteriousAscii: string =
         "@#^*()_+{}[]|\\:;\"'<>,.?/~`%$£=&!§±¶•ªº–≠≈∆∏∑Ωµ√∞≤≥÷";
       setPlaceholderText(mysteriousAscii);
-      navigate("/journal");
+      navigate(`/journal/${entityName}`);
     }
   }, [loadingStatus, navigate]);
   return (
@@ -93,12 +97,8 @@ export function SearchDiariesPage() {
       event.preventDefault();
       let formValue = form.namePromptInput;
       if (formValue) {
-        dispatch(
-          fetchJournalEntryFromName({
-            name: formValue,
-            journalEntry: { complete: false, content: undefined },
-          })
-        );
+        setEntityName(formValue);
+        navigate(`/journal/${formValue}`);
       }
     }
     return (
@@ -112,7 +112,7 @@ export function SearchDiariesPage() {
           type="text"
           name="namePromptInput"
           className={styles["search-input"]}
-          disabled={loadingStatus}
+          disabled={loadingStatus === LoadingStatus.PENDING}
           value={form.namePromptInput}
           placeholder={placeholderText}
           onChange={(e) => {
@@ -126,7 +126,7 @@ export function SearchDiariesPage() {
           className={styles["search-button"]}
           type="submit"
           onMouseEnter={() => setRandomNumber(getRandomNumber())}
-          disabled={loadingStatus}
+          disabled={loadingStatus === LoadingStatus.PENDING}
         >
           {WHIMSICAL_SYNONYMS_FOR_SEARCH[randomNumber]}
         </button>
