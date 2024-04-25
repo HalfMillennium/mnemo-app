@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { updateName } from "../name_prompt/namePromptSlice";
+import { generateRandomTimestamp } from "./utils";
 
 export interface JournalEntry {
   // undefined -> not started, false -> failed, true -> succeeded
@@ -80,6 +81,9 @@ export const fetchJournalEntryFromName = createAsyncThunk(
     dispatch(updateName(payload.name));
     // TODO: replace example logic with actual API request
     await new Promise((resolve) => setTimeout(resolve, 10000));
+
+    // Generate random timestamp based on current time and timezone. Will be passed to graphQL mutation
+    const randomTimestamp = generateRandomTimestamp();
     return {
       name: payload.name,
       journalEntry: {
