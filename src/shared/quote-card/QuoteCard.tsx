@@ -33,10 +33,12 @@ export default function QuoteCard(props: {quote: string|undefined, entityName: s
     } as SxProps<Theme>;
 
     function share() {
+        // TODO: Implement
         console.log('Should share...');
     }
 
     function copyText() {
+        // TODO: Implement
         console.log('Should copy to user\'s clipboard...')
     }
 
@@ -52,7 +54,7 @@ export default function QuoteCard(props: {quote: string|undefined, entityName: s
                     </div>
                     <div className="quote">
                         <div className="floated-right">
-                            <img className="person-image-top" src="https://via.placeholder.com/200" alt="placeholder"></img>
+                            <img className="person-image-top" src="https://via.placeholder.com/200" alt={entityName}></img>
                         </div>
                         {quote}
                         <div className="row quote-right-container floated-right">
@@ -62,7 +64,7 @@ export default function QuoteCard(props: {quote: string|undefined, entityName: s
                     <div className="quote-extras-container">
                         <div className="row">
                             <p><span className="post-date">February 20th, 2024</span> - 1:48pm</p>
-                            <img src={require('../../core/assets/apollo_trans.gif')} width={50} height={50}/>
+                            <img src={require('../../core/assets/apollo_trans.gif')} width={50} height={50} alt="apollo gif"/>
                         </div>
                         <Fab className="share-fab" variant="extended" size="small" color="primary" onClick={handleModalOpen}>
                             <IoShareSocialOutline size={24}/>

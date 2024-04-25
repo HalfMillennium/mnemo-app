@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import namePromptReducer from "./name_prompt/namePromptSlice";
-import journalEntriesSlice from "./journal_entries/journalEntriesSlice";
+import journalEntriesReducer from "./journal_entries/journalEntriesSlice";
 
 export const store = configureStore({
   reducer: {
     namePrompt: namePromptReducer,
-    journalEntries: journalEntriesSlice,
+    journalEntries: journalEntriesReducer,
   },
 });
 

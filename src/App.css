@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   width: 100%;
+  overflow: hidden;
 }
 
 video {
@@ -19,6 +20,10 @@ video {
 
 .bg-progress-page {
   filter: grayscale(75%)
+}
+
+.bg-error {
+  filter: sepia(1) hue-rotate(-60deg);
 }
 
 .app-body {

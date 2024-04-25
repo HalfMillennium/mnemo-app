@@ -41,7 +41,9 @@
 
 .quote {
     font-size: 20px;
-    font-style: italic;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     color: #1a1a1a;
     overflow: visible;
     margin-top: 3rem;
@@ -123,6 +125,9 @@
 
 .post-date {
     font-weight: bold;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .share-icons-parent {
@@ -149,6 +154,9 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .share-to {

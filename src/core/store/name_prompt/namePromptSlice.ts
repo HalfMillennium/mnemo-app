@@ -1,10 +1,10 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface NamePromptState {
   name: string | undefined;
 }
 
-const initialState: NamePromptState = {
+export const initialState: NamePromptState = {
   name: undefined,
 };
 
