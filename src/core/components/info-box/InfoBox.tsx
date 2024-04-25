@@ -17,7 +17,12 @@ export function InfoBox(props: {
       </div>
       <div className="more-info">
         {props.linkText}{" "}
-        <a href={props.link} rel="external" className="more-info-link">
+        <a
+          href={props.link}
+          className="more-info-link"
+          rel="noopener"
+          target="_blank"
+        >
           <u>HERE</u>
         </a>
       </div>

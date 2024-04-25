@@ -10,6 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     padding-top: 10rem;
+    animation: fade-in 2s ease-in-out;
 }
 
 .search-page-content {
@@ -99,5 +100,14 @@ body {
     .static-info-box {
         background-color: rgba(22, 22, 22, 0.8);
         visibility: visible;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
