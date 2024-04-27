@@ -27,3 +27,10 @@
 .info-tooltip-container {
     position: relative;
 }
+
+@media (max-width: 768px) {
+    .header {
+        font-size: 6rem;
+        padding: 1.5rem 2.5rem;
+    }
+}

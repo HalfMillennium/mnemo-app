@@ -7,9 +7,13 @@
     opacity: 0.75;
 }
 
-.title-container.h1 {
-    font-size: 3rem;
-}
+.title-text {
+    font-size: 4rem;
+ }
+ .subtitle-text {
+    font-size: 2rem;
+    line-height: 1.5rem;
+ }
 
 .quote-mark {
     color: purple;
@@ -18,5 +22,14 @@
 @media (max-width: 630px) {
     .title-container {
         width: 100vw;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1355px) {
+    .title-text {
+        font-size: 3.5rem;
+    }
+    .subtitle-text {
+        font-size: 1.75rem;
     }
 }

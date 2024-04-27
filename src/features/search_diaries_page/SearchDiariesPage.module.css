@@ -91,7 +91,7 @@ body {
     .search-diary-entries-title {
         text-align: center;
     }
-    input[type="text"] {
+    .search-input[type="text"] {
         width: 15rem;
     }
     .content {

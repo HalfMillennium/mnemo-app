@@ -19,6 +19,11 @@ import {
 import { ErrorPage } from "../../shared/error-page";
 import { GENERIC_ERROR_TEXT } from "../utils/search_diaries_page";
 
+/**
+ * If entityName is defined, check if it exists in the queryHistory. If so, use the existing diaryEntryContent.
+ *
+ * Otherwise, dispatch a fetchJournalEntryFromName action with the entityName.
+ */
 export function DiaryEntryPage() {
   const { entityName } = useParams();
   const dispatch = useDispatch<AppDispatch>();
@@ -30,6 +35,8 @@ export function DiaryEntryPage() {
     (state: RootState) => state.journalEntries.queries
   );
   let diaryEntryContent: JournalEntry | undefined;
+
+  document.body.style.overflowY = "visible";
 
   useEffect(() => {
     if (entityName) {
@@ -45,7 +52,7 @@ export function DiaryEntryPage() {
       );
     }
   }, [entityName, dispatch]);
-  if (!!entityName) {
+  if (entityName) {
     if (
       loadingStatus === LoadingStatus.SUCCESS ||
       loadingStatus === LoadingStatus.IDLE
@@ -53,9 +60,7 @@ export function DiaryEntryPage() {
       return (
         <>
           <Helmet>
-            <title>
-              {entityName ? `| The Journal of ${entityName}` : "Loading..."}
-            </title>
+            <title>{`| The Journal of ${entityName}`}</title>
           </Helmet>
           <div className={styles["container"]}>
             <div className={styles["page-header"]}>

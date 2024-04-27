@@ -1,11 +1,11 @@
 import React from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 export function Header() {
   const siteTitleDisplay = "mnemo";
   return (
-    <div className="header-container">
-      <div className="header">{siteTitleDisplay}</div>
+    <div className={styles["header-container"]}>
+      <div className={styles["header"]}>{siteTitleDisplay}</div>
     </div>
   );
 }

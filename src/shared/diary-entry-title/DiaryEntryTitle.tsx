@@ -1,14 +1,18 @@
 import React from "react";
-import './DiaryEntryTitle.css';
+import styles from "./DiaryEntryTitle.module.css";
 
-export function DiaryEntryTitle(props: {entityName: string|undefined}) {
-    const {entityName} = props;
-    const quoteMark = <span className="quote-mark">"</span>;
-    return (
-        <div className="title-container">
-            <h1>FROM THE</h1>
-            <h1>DIARY OF</h1>
-            <h2>{quoteMark}<span>{entityName}</span>{quoteMark}</h2>
-        </div>
-    );
+export function DiaryEntryTitle(props: { entityName: string | undefined }) {
+  const { entityName } = props;
+  const quoteMark = <span className={styles["quote-mark"]}>"</span>;
+  return (
+    <div className={styles["title-container"]}>
+      <h1 className={styles["title-text"]}>FROM THE</h1>
+      <h1 className={styles["title-text"]}>DIARY OF</h1>
+      <h2 className={styles["subtitle-text"]}>
+        {quoteMark}
+        <span>{entityName}</span>
+        {quoteMark}
+      </h2>
+    </div>
+  );
 }

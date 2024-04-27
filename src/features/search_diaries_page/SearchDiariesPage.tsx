@@ -2,12 +2,8 @@ import React, { FormEvent, useEffect } from "react";
 import { WHIMSICAL_SYNONYMS_FOR_SEARCH } from "../../core/assets/whimsical_words";
 import { MNEMOSYNE_BLURB } from "../utils/search_diaries_page";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../../core/store/store";
-import {
-  LoadingStatus,
-  fetchJournalEntryFromName,
-} from "../../core/store/journal_entries/journalEntriesSlice";
+import { useSelector } from "react-redux";
+import { LoadingStatus } from "../../core/store/journal_entries/journalEntriesSlice";
 import { Tooltip } from "react-tooltip";
 import { InfoBox } from "../../core/components/info-box";
 import { FaQuestionCircle } from "react-icons/fa";
@@ -17,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 export function SearchDiariesPage() {
-  const dispatch = useDispatch<AppDispatch>();
   const loadingStatus = useSelector(
     (state: RootState) => state.journalEntries.loading
   );
@@ -35,7 +30,7 @@ export function SearchDiariesPage() {
       setPlaceholderText(mysteriousAscii);
       navigate(`/journal/${entityName}`);
     }
-  }, [loadingStatus, navigate]);
+  }, [loadingStatus, navigate, entityName]);
   return (
     <>
       <Helmet>

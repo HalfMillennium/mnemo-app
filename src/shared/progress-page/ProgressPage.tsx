@@ -3,6 +3,7 @@ import styles from "./ProgressPage.module.css";
 import { Button, CircularProgress } from "@mui/material";
 
 export function ProgressPage(props: { entityName: string | undefined }) {
+  document.body.style.overflow = "hidden";
   return (
     <div className={styles["progress-container"]}>
       <div className={styles["progress-bar"]}>
@@ -13,7 +14,7 @@ export function ProgressPage(props: { entityName: string | undefined }) {
           Loading the intimate thoughts of {props.entityName}...
         </p>
         <div>
-          <Button variant="outlined" color="inherit">
+          <Button variant="outlined" color="inherit" href="/">
             ¿Cancel?
           </Button>
         </div>
