@@ -23,7 +23,6 @@ export function SearchDiariesPage() {
   const [entityName, setEntityName] = useState("");
 
   useEffect(() => {
-    //document.title = "MNEMO | Search journal entries";
     if (loadingStatus === LoadingStatus.PENDING) {
       const mysteriousAscii: string =
         "@#^*()_+{}[]|\\:;\"'<>,.?/~`%$£=&!§±¶•ªº–≠≈∆∏∑Ωµ√∞≤≥÷";
@@ -44,7 +43,7 @@ export function SearchDiariesPage() {
             <h1 className={styles["title-h1"]}>ENTRIES</h1>
           </div>
           <div className={styles["bottom-container"]}>
-            <span className={styles["name-prompt-container"]}>
+            <span className={styles["name-prompt-form-container"]}>
               <NamePromptForm />
             </span>
             <span className={styles["static-info-box"]}>

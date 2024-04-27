@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { AppBody, Header } from "./core/components";
+import { AppBody } from "./core/components/app-body";
+import { Header } from "./core/components/header";
 import "./App.css";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
