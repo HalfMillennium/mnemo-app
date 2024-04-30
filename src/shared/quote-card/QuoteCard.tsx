@@ -14,6 +14,12 @@ import { useState } from "react";
 import { getModalColor } from "../utils/quote_card";
 import { MdClose } from "react-icons/md";
 import { Snackbar } from "@mui/material";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  RedditShareButton,
+} from "react-share";
+import { FaFacebook, FaTwitter, FaReddit } from "react-icons/fa";
 
 const QUOTE_ICON_SIZE = 42;
 
@@ -119,9 +125,27 @@ export default function QuoteCard(props: {
         <div className="share-options">
           <div className="share-icons-parent">
             <div className="share-icon">
-              <IconButton onClick={share}>
-                <FaRegShareSquare size={24} color="white" />
-              </IconButton>
+              <FacebookShareButton
+                url={`https://mnemo.app/journal/${entityName}`}
+                hashtag="#MnemoApp"
+              >
+                <FaFacebook size={24} />
+              </FacebookShareButton>
+            </div>
+            <div className="share-icon">
+              <TwitterShareButton
+                url={`https://mnemo.app/journal/${entityName}`}
+                hashtags={["MnemoApp", "genAI", `${entityName}`]}
+              >
+                <FaTwitter size={24} />
+              </TwitterShareButton>
+            </div>
+            <div className="share-icon">
+              <RedditShareButton
+                url={`https://mnemo.app/journal/${entityName}`}
+              >
+                <FaReddit size={24} />
+              </RedditShareButton>
             </div>
             <div className="share-icon">
               <IconButton onClick={copyText}>
